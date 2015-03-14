@@ -46,6 +46,7 @@ void State:: addTransition(string input,State* dest)
 void State:: getTrasitions(string input,vector<State*>&destStates)
 {
     destStates.clear();
+
     multimap<string, State*>::iterator st;
 
     for(st = transitions.lower_bound(input); st != transitions.upper_bound(input); ++st)

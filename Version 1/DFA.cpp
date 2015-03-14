@@ -56,9 +56,27 @@ void DFA::epsilonClosure(set<State*>states,set<State*>&result)
 
 
 }
-void DFA::epsilonClosure(set<State*>states,string input,set<State*>&result)
-{   result.clear();
+void DFA::moveTransition(set<State*>states,string input,set<State*>&result)
+{
+    result.clear();
     vector<State*>destStates;
+    set<State*>::iterator iter;
+    for (iter = states.begin(); iter != states.end(); ++iter)
+    {
+        State *curr=*iter;
+        curr->getTrasitions(input,destStates);
+
+        for(int i=0; i<destStates.size(); i++)
+        {
+
+            result.insert(destStates[i]);
+
+
+        }
+
+    }
+
+
 
 }
 

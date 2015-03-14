@@ -22,7 +22,7 @@ public:
     DFA();
     virtual ~DFA();
     void epsilonClosure(set<State*>states,set<State*>&result);
-    void moveTransion(set<State*>states,string input,set<State*>&result);
+    void moveTransition(set<State*>states,string input,set<State*>&result);
 protected:
 private:
 };
