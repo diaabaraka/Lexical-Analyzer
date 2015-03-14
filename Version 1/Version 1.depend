@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1426358146 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.cpp
+	"DFA.h"
+	"State.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1426356120 c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.h
+	<map>
+	<set>
+	<string>
+	"State.h"
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+
+1426347270 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\main.cpp
+	<iostream>
+	<map>
+
+1426339636 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\nfa.cpp
+	"NFA.h"
+
+1426339689 c:\users\dyaa\documents\github\lexical-analyzer\version 1\nfa.h
+	"State.h"
+	<string>
+	<map>
+	<stack>
+
+1426358130 c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.h
+	<map>
+	<vector>
+	<set>
+	<string>
+
+1426358130 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.cpp
+	"State.h"
+	<map>
+	<set>
+	<string>
+
