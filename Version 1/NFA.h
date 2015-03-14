@@ -3,8 +3,10 @@
 #define NFA_H
 
 #include "State.h"
+#include <iostream>
 #include <string>
 #include <map>
+#include <string.h>
 #include <stack>
 using namespace std;
 
@@ -12,17 +14,22 @@ class NFA
 {
     public:
         NFA();
-        void parse(string expression);
+        string parse(string expression);
         State compine();
         string postfix(string expression);
         bool high_priority(char first , char top);
-
-
+        bool isOperator(char x);
+        bool isChar(char x);
+        string addConcatenation(string expr);
+        void checkOperator(string expr, bool dete[] );
+        State Eval(string postFix);
 
     protected:
     private:
         map<string , State>regular_expression;
         map<string , State>regular_definition;
+        set<string> inputSet;
+
         int counter = 0;
 
 
