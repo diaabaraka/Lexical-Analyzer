@@ -6,6 +6,8 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <set>
+#include <queue>
 #include <string.h>
 #include <stack>
 using namespace std;
@@ -22,7 +24,8 @@ class NFA
         bool isChar(char x);
         string addConcatenation(string expr);
         void checkOperator(string expr, bool dete[] );
-        State Eval(string postFix);
+        State* Eval(string postFix);
+        void BFS(State* x);
 
     protected:
     private:

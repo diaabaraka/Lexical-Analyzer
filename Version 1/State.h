@@ -15,7 +15,7 @@ public:
 //        vector<> getEdges();
     int get_Id();
 
-
+    multimap<string , State*> getAllTransitions();
     void addTransition(string input,State* dest);
    void getTrasitions(string input,vector<State*>&destStates);
 private:

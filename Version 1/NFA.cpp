@@ -48,24 +48,25 @@ string NFA :: parse(string expression){
 
 
 
-
-        return expression_0 ;
+        Eval(expression_0);
+        cout<<"whfdds"<<endl;
+        return "45" ;
 
 
 }
 
-State NFA:: Eval(string postFix){
+State* NFA:: Eval(string postFix){
 
     string operand = "";
-
+    string eps = "-1";
     stack< pair<State* , State*> > states;
     counter = 0;
 
     for(int i = 0 ; i < postFix.size() ; i++){
 
         if(postFix[i] == ' '){
-
-            if(operand.compare(" ") != 0){
+            cout<<operand<<"hhhhhhhhhh\n";
+            if(operand.compare("") != 0){
                 // Not an empty operand then we shouldn't ignore
 
                 if(regular_definition.find(operand) != regular_definition.end()){
@@ -105,7 +106,141 @@ State NFA:: Eval(string postFix){
 
         }
 
+
+        else if(isOperator(postFix[i])){
+            // handle the regula expression operation
+
+            switch( postFix[i] ){
+
+            case '*' :{
+                pair<State* , State*> first = states.top();
+                states.pop();
+
+                first.first->addTransition(eps ,first.second);
+                first.second->addTransition(eps ,first.first);
+                states.push(first);
+
+            }
+
+                break;
+
+            case '+' :{
+                pair<State* , State*> first = states.top();
+                states.pop();
+
+                //first.first->addTransition(eps ,first.second);
+                first.second->addTransition(eps ,first.first);
+                states.push(first);
+
+
+            }
+
+                break;
+
+            case '|' :{
+                // get two elements from the stack and create new start and end
+                // then connect the new start with the two old start and repeat with the new end
+
+                pair<State* , State*> first = states.top();
+                states.pop();
+                pair<State* , State*> second = states.top();
+                states.pop();
+                 State* newStart = new State(counter++);
+                 State* newEnd = new State(counter++);
+
+                 newStart->addTransition(eps ,first.first);
+                 newStart->addTransition(eps , second.first);
+
+                 first.second->addTransition(eps , newEnd);
+                 second.second->addTransition(eps , newEnd);
+
+                 states.push(make_pair(newStart , newEnd));
+
+
+
+
+            }
+
+                break;
+
+            case '$':{
+                pair<State* , State*> first = states.top();
+                states.pop();
+                pair<State* , State*> second = states.top();
+                states.pop();
+                second.second->addTransition(eps ,first.first);
+                states.push(make_pair(second.first , first.second));
+                cout<<"found thus"<<endl;
+
+            }
+
+
+                break;
+
+            default:
+                break;
+
+            }
+
+
+        }
+        else {
+            operand.push_back(postFix[i]);
+        }
+
+
+
+
+
     }
+
+    pair<State* , State*> st = states.top();
+    states.pop();
+
+    BFS(st.first);
+
+    cout<<"why"<<endl;
+    return st.first;
+
+}
+
+
+void NFA:: BFS(State* start){
+
+    set<int> found;
+
+    queue<State*> q;
+
+    q.push(start);
+
+
+    while(!q.empty()){
+
+        State* tmp = q.front();
+
+        if(found.find(tmp->get_Id())!= found.end()){
+            continue;
+        }
+        found.insert(tmp->get_Id());
+        q.pop();
+        cout<<"Node :"<<tmp->get_Id() << endl;
+        cout<< "connected to :"<<endl;
+    multimap<string, State*>::iterator st;
+    multimap<string,State*>transitions = tmp->getAllTransitions();
+
+    for(st = transitions.begin(); st != transitions.end(); ++st){
+      State* tmp1 = (st->second);
+      cout<< tmp1->get_Id() << st->first <<endl;
+      q.push(tmp1);
+
+    }
+    cout<< "<<<<<<<<<<<<<<<<<<<<\n";
+
+
+
+    }
+
+
 
 
 
