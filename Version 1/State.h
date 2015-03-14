@@ -18,6 +18,11 @@ public:
     multimap<string , State*> getAllTransitions();
     void addTransition(string input,State* dest);
    void getTrasitions(string input,vector<State*>&destStates);
+   void set_Type (string type ) ;
+
+    string getType() ;
+
+
 private:
     int state_Id;
 //        vector<> Edges;
@@ -25,6 +30,8 @@ private:
     //Include all states that can be reached from this state with a specific input.
     set<State*>NFAstates;
     bool acceptingState;
+    string classType ;
+
 
 
 

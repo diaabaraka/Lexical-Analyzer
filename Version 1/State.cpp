@@ -59,4 +59,17 @@ multimap<string, State*> State:: getAllTransitions(){
 
 }
 
+string State :: getType()
+    {
+    return classType ;
+
+    }
+
+ void State :: set_Type (string type )
+    {
+
+    classType = type ;
+
+    }
+
 

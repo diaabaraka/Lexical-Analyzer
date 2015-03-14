@@ -34,6 +34,7 @@ class NFA
         set<string> inputSet;
 
         int counter = 0;
+        State startState ;
 
 
 };

@@ -2,6 +2,7 @@
 
 NFA::NFA()
 {
+    startState = NULL ;
     //ctor
 }
 
