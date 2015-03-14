@@ -79,6 +79,10 @@ void DFA::moveTransition(set<State*>states,string input,set<State*>&result)
 
 
 }
+//DFA void::convertToDFA()
+//{
+//
+//}
 
 DFA::~DFA()
 {
