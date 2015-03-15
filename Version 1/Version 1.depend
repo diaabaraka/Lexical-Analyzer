@@ -59,3 +59,94 @@
 
 1426379804 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\transitiontable.cpp
 
+1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\dfa.cpp
+	"DFA.h"
+	"State.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1426385785 c:\users\wido\documents\lexical-analyzer\version 1\dfa.h
+	<map>
+	<set>
+	<string>
+	"State.h"
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+
+1426385785 c:\users\wido\documents\lexical-analyzer\version 1\state.h
+	<map>
+	<vector>
+	<set>
+	<string>
+
+1426385771 source:c:\users\wido\documents\lexical-analyzer\version 1\main.cpp
+	<iostream>
+	<map>
+
+1426376635 source:c:\users\wido\documents\lexical-analyzer\version 1\nfa.cpp
+	"NFA.h"
+
+1426376635 c:\users\wido\documents\lexical-analyzer\version 1\nfa.h
+	"State.h"
+	<iostream>
+	<string>
+	<map>
+	<set>
+	<queue>
+	<string.h>
+	<stack>
+
+1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\state.cpp
+	"State.h"
+	<map>
+	<set>
+	<string>
+
+1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\transitiontable.cpp
+
+1426420576 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
+	"DfaMinimizer.h"
+	"DFA.h"
+	"State.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1426420083 c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.h
+	"DFA.h"
+	"State.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
