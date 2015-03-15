@@ -81,7 +81,7 @@ void DFA::moveTransition(set<State*>states,string input,set<State*>&result)
 }
 void DFA  ::convertToDFA()
 {
-int ID_counter=0;
+    int ID_counter=0;
     DFAtable.clear();
     set<State*>NFAstartingStates;
     NFAstartingStates.insert(startingState);//here we have starting states of NFA
@@ -96,6 +96,51 @@ int ID_counter=0;
     State *DFAstartingState=new State(ID_counter++,epsilonStates);
 
     DFAtable.push_back(DFAstartingState);
+    vector <State*> unmarkedStates;
+    unmarkedStates.push_back(DFAstartingState);
+    State*curr;
+    set<State*>NFAstates;
+    set<State*>moveStates,epsilonOfMoves,token;
+    string input;
+    while(!unmarkedStates.empty())
+    {
+        curr=unmarkedStates[unmarkedStates.size()-1];
+        unmarkedStates.pop_back();
+        curr->getNFAstates(NFAstates);
+        set<string>::iterator iter;
+        for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+        {
+            input=*iter;
+            moveTransition(NFAstates,input,moveStates);
+            epsilonClosure(moveStates,epsilonOfMoves);
+            State *st;
+            int i=0;
+            for(; i<DFAtable.size(); i++)
+            {
+                st=DFAtable[i];
+                st->getNFAstates(token);
+                if(token==epsilonOfMoves)
+                {
+                    curr->addTransition(input,st);
+                    break;
+                }
+
+
+            }
+            if(i==DFAtable.size())
+            {
+                State* newState=new State(ID_counter++,epsilonOfMoves);
+                DFAtable.push_back(newState);
+                unmarkedStates.push_back(newState);
+                curr->addTransition(input,newState);
+            }
+
+
+        }
+
+
+    }
+
 
 
 

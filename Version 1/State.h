@@ -20,7 +20,7 @@ public:
     void addTransition(string input,State* dest);
    void getTrasitions(string input,vector<State*>&destStates);
    void set_Type (string type ) ;
-
+    void getNFAstates(set<State*>&nfaSstates);
     string getType() ;
 
 

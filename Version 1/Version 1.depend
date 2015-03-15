@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1426378421 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.cpp
+1426382631 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.cpp
 	"DFA.h"
 	"State.h"
 	<map>
@@ -14,7 +14,7 @@
 	<set>
 	<string>
 
-1426378416 c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.h
+1426381082 c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.h
 	<map>
 	<set>
 	<string>
@@ -45,15 +45,17 @@
 	<string.h>
 	<stack>
 
-1426378276 c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.h
+1426382039 c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.h
 	<map>
 	<vector>
 	<set>
 	<string>
 
-1426378347 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.cpp
+1426382007 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.cpp
 	"State.h"
 	<map>
 	<set>
 	<string>
+
+1426379804 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\transitiontable.cpp
 

@@ -28,6 +28,7 @@ protected:
 private:
     vector<State*>DFAtable;
     State*startingState;
+    set<string>inputSet;
 };
 
 #endif // DFA_H

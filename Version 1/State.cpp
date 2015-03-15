@@ -77,6 +77,11 @@ multimap<string, State*> State:: getAllTransitions(){
 
 
 }
+void State::getNFAstates(set<State*>&nfaSstates){
+    nfaSstates=NFAstates;
+
+
+}
 
 string State :: getType()
     {
