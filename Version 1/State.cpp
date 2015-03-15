@@ -15,6 +15,25 @@ State::State(int state_ID)
     state_Id = state_ID;
 
 }
+//This constructor is only for DFA states.
+State::State(int state_ID,set<State*>nfaStates)
+{
+    state_Id=state_ID;
+    NFAstates=nfaStates;
+    // Now we should check if this state is accepting state or not.
+    acceptingState=false;//Intially
+    set<State*>::iterator iter;
+    State*st;
+    for (iter = nfaStates.begin(); iter != nfaStates.end(); ++iter)
+    {
+        st=*iter;
+        if(st->isAccepting())
+        {
+            acceptingState=true;//for the new DFA state
+            break;
+        }
+    }
+}
 bool State :: isAccepting()
 {
 

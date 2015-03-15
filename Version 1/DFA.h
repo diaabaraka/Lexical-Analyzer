@@ -23,8 +23,11 @@ public:
     virtual ~DFA();
     void epsilonClosure(set<State*>states,set<State*>&result);
     void moveTransition(set<State*>states,string input,set<State*>&result);
+    void convertToDFA(void);
 protected:
 private:
+    vector<State*>DFAtable;
+    State*startingState;
 };
 
 #endif // DFA_H

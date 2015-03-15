@@ -79,10 +79,29 @@ void DFA::moveTransition(set<State*>states,string input,set<State*>&result)
 
 
 }
-//DFA void::convertToDFA()
-//{
-//
-//}
+void DFA  ::convertToDFA()
+{
+int ID_counter=0;
+    DFAtable.clear();
+    set<State*>NFAstartingStates;
+    NFAstartingStates.insert(startingState);//here we have starting states of NFA
+
+    set <State*>epsilonStates;
+
+
+
+    epsilonClosure(NFAstartingStates,epsilonStates);
+    // now DFAstartinng states include all states that reached from the
+    //NFAstarting states by epsilon input.
+    State *DFAstartingState=new State(ID_counter++,epsilonStates);
+
+    DFAtable.push_back(DFAstartingState);
+
+
+
+
+
+}
 
 DFA::~DFA()
 {

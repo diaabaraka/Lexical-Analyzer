@@ -11,6 +11,7 @@ class State
 public:
     State();
     State(int state_ID);
+    State(int stat_ID,set<State*>nfaStates);
     bool isAccepting();
 //        vector<> getEdges();
     int get_Id();
