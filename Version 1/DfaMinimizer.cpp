@@ -84,6 +84,7 @@
 
      vector< vector<int> > myVector;
 
+   CreateTheTwoDArray(working_set,SZ(allStates),mappingArr);
 
    // loop on work_set
    // categorize every state at the specific vector now in the 2D vector< vector<int> > myVector;
@@ -91,6 +92,50 @@
    // back to loop :D
 
 }
+
+  void DfaMinimizer::CreateTheTwoDArray(vector <vector <State*> > working_set,int n,int * mappingArr){
+
+ vector<vector<double> > array2D;
+
+  array2D.resize(n);
+  for (int i = 0; i < n; ++i)
+    array2D[i].resize(n);
+
+  // Put some values in
+ // array2D[1][2] = 6.0;
+  // array2D[3][1] = 5.5;
+
+
+   REP(i,SZ(working_set)){
+
+   vector <State*> working_vector=working_set[i];
+
+    REP(j,SZ(working_vector)){
+
+   State* s= working_vector[j];
+
+     vector <State*> goingToVector;
+
+     //   waiting for input
+
+     string input="a";
+
+     s->getTrasitions(input, goingToVector);
+
+     State* goingToState=goingToVector[0];
+
+
+    }
+
+
+   }
+
+
+
+
+  }
+
+
 
 DfaMinimizer::DfaMinimizer(vector <State*> allStates)
 {
