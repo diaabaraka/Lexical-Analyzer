@@ -242,6 +242,7 @@ string str = ss.str();
    State* s= working_vector[j];
 
   vector <State*> tempGoingToVector;
+
       tempGoingToVector.clear();
      vector <int> GoingToStatesVector;
          GoingToStatesVector.clear();
@@ -250,7 +251,8 @@ string str = ss.str();
 
          set<string>inputSet;            ////////////// waiting for consturctor
          inputSet.insert("1");
-         inputSet.insert("0");
+         inputSet.insert("2");
+   inputSet.insert("3");
 
         for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
         {
@@ -259,11 +261,16 @@ string str = ss.str();
 
      s->getTrasitions(input, tempGoingToVector);
 
+            if(SZ(tempGoingToVector)>0){
+
      State* goingToState=tempGoingToVector[0];
 
           GoingToStatesVector.pb(mappingArr[goingToState->get_Id()]);
+            }
 
         }
+
+
    // state S going to GoingtoStatesVector states
 
   string hf=constt+hashingFunction(GoingToStatesVector);

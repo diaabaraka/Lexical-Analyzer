@@ -117,7 +117,7 @@
 
 1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\transitiontable.cpp
 
-1426631973 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
+1426634482 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
 	"DfaMinimizer.h"
 	"DFA.h"
 	"State.h"
@@ -192,13 +192,9 @@
 	<fstream>
 	"DFA.h"
 
-1426631899 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
-	<iostream>
-	"NFA.h"
-	<fstream>
-	"DFA.h"
+1426632164 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
 
-1426631879 source:c:\users\wido\documents\lexical-analyzer\version 1\waleed test main.cpp
+1426633043 source:c:\users\wido\documents\lexical-analyzer\version 1\waleed test main.cpp
 	<iostream>
 	<map>
 	"State.h"
