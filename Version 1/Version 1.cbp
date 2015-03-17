@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="DFA.cpp" />
 		<Unit filename="DFA.h" />
+		<Unit filename="DfaMinimizer.cpp" />
+		<Unit filename="DfaMinimizer.h" />
 		<Unit filename="NFA.cpp" />
 		<Unit filename="NFA.h" />
 		<Unit filename="State.cpp" />

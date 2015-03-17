@@ -2,7 +2,9 @@
 #include "DFA.h"
 #include "State.h"
 #include <map>
-
+#include <iostream>
+#include <cmath>
+#include <typeinfo>
 #include <string>
 #include <stack>
 #include <map>
@@ -56,6 +58,25 @@
    }
 
 
+string DfaMinimizer::hashingFunction( vector <State*> GoingToStatesVector)
+{
+  string str="";
+
+  REP(i,SZ(GoingToStatesVector)){
+
+  str+=GoingToStatesVector[i]->get_Id();
+
+  }
+
+
+}
+
+
+
+
+
+
+
 
  void DfaMinimizer::minimize(vector <State*> allStates){
 
@@ -82,29 +103,43 @@
 
     int * mappingArr=setTheMappingArr(working_set,SZ(allStates));
 
-     vector< vector<int> > myVector;
+
 
    CreateTheTwoDArray(working_set,SZ(allStates),mappingArr);
 
-   // loop on work_set
-   // categorize every state at the specific vector now in the 2D vector< vector<int> > myVector;
-   // make the new working set
-   // back to loop :D
+
+
+}
+
+
+vector <vector <State*> > DfaMinimizer::makeTheNewWorkSet( map <string , vector<State*> > hmap ){
+
+ vector <vector <State*> > working_set;
+
+map<string, vector<State*> >::iterator it;
+
+for (it = hmap.begin(); it != hmap.end(); it++)
+{
+
+ working_set.pb(it->second);
+
+}
+
+ return working_set;
+}
+
+void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set){
+
+
 
 }
 
   void DfaMinimizer::CreateTheTwoDArray(vector <vector <State*> > working_set,int n,int * mappingArr){
 
- vector<vector<double> > array2D;
 
-  array2D.resize(n);
-  for (int i = 0; i < n; ++i)
-    array2D[i].resize(n);
+   while(1){
 
-  // Put some values in
- // array2D[1][2] = 6.0;
-  // array2D[3][1] = 5.5;
-
+   map <string , vector<State*> > hmap;
 
    REP(i,SZ(working_set)){
 
@@ -114,23 +149,64 @@
 
    State* s= working_vector[j];
 
-     vector <State*> goingToVector;
+  vector <State*> tempGoingToVector;
+      tempGoingToVector.clear();
+     vector <State*> GoingToStatesVector;
+         GoingToStatesVector.clear();
 
-     //   waiting for input
+    set<string>::iterator iter;
 
-     string input="a";
+         set<string>inputSet;            ////////////// waiting for consturctor
 
-     s->getTrasitions(input, goingToVector);
+        for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+        {
+        string input=*iter;
 
-     State* goingToState=goingToVector[0];
+     s->getTrasitions(input, tempGoingToVector);
+
+     State* goingToState=tempGoingToVector[0];
+
+       GoingToStatesVector.pb(goingToState);
+
+        }
+   // state S going to GoingtoStatesVector states
+
+   string hf=hashingFunction(GoingToStatesVector);
+
+  if(hmap.count(hf)){
+
+  hmap.find(hf)->second.pb(s);
+
+  }
+else{
+vector <State*> v;
+v.pb(s);
+hmap[hf]=v;
+}
+
+
 
 
     }
 
 
+
    }
 
+vector <vector <State*> > working_set2;
 
+ working_set2=makeTheNewWorkSet(hmap);
+ // compare
+
+ if( equal(working_set.begin(), working_set.end(), working_set2.begin()) ){
+
+    sendToNextStage(working_set);
+
+ }
+
+ working_set=working_set2;
+
+   }
 
 
   }

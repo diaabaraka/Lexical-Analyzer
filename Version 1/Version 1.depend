@@ -88,20 +88,21 @@
 	<algorithm>
 	<list>
 
-1426385785 c:\users\wido\documents\lexical-analyzer\version 1\state.h
+1426608812 c:\users\wido\documents\lexical-analyzer\version 1\state.h
 	<map>
 	<vector>
 	<set>
 	<string>
+	<iostream>
 
 1426385771 source:c:\users\wido\documents\lexical-analyzer\version 1\main.cpp
 	<iostream>
 	<map>
 
-1426376635 source:c:\users\wido\documents\lexical-analyzer\version 1\nfa.cpp
+1426608812 source:c:\users\wido\documents\lexical-analyzer\version 1\nfa.cpp
 	"NFA.h"
 
-1426376635 c:\users\wido\documents\lexical-analyzer\version 1\nfa.h
+1426608812 c:\users\wido\documents\lexical-analyzer\version 1\nfa.h
 	"State.h"
 	<iostream>
 	<string>
@@ -111,7 +112,7 @@
 	<string.h>
 	<stack>
 
-1426420598 source:c:\users\wido\documents\lexical-analyzer\version 1\state.cpp
+1426608812 source:c:\users\wido\documents\lexical-analyzer\version 1\state.cpp
 	"State.h"
 	<map>
 	<set>
@@ -119,11 +120,14 @@
 
 1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\transitiontable.cpp
 
-1426420576 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
+1426613304 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
 	"DfaMinimizer.h"
 	"DFA.h"
 	"State.h"
 	<map>
+	<iostream>
+	<cmath>
+	<typeinfo>
 	<string>
 	<stack>
 	<map>
@@ -135,7 +139,7 @@
 	<set>
 	<string>
 
-1426420083 c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.h
+1426613219 c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.h
 	"DFA.h"
 	"State.h"
 	<map>
