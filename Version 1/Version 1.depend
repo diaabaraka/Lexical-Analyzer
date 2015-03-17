@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1426382631 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.cpp
+1426622686 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.cpp
 	"DFA.h"
 	"State.h"
 	<map>
@@ -14,7 +14,7 @@
 	<set>
 	<string>
 
-1426381082 c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.h
+1426622668 c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfa.h
 	<map>
 	<set>
 	<string>
@@ -28,14 +28,12 @@
 	<algorithm>
 	<list>
 
-1426378069 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\main.cpp
-	<iostream>
-	<map>
+1426622734 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\main.cpp
 
-1426378069 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\nfa.cpp
+1426622525 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\nfa.cpp
 	"NFA.h"
 
-1426378451 c:\users\dyaa\documents\github\lexical-analyzer\version 1\nfa.h
+1426622525 c:\users\dyaa\documents\github\lexical-analyzer\version 1\nfa.h
 	"State.h"
 	<iostream>
 	<string>
@@ -45,19 +43,20 @@
 	<string.h>
 	<stack>
 
-1426382039 c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.h
+1426622645 c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.h
 	<map>
 	<vector>
 	<set>
 	<string>
+	<iostream>
 
-1426382007 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.cpp
+1426622654 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\state.cpp
 	"State.h"
 	<map>
 	<set>
 	<string>
 
-1426379804 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\transitiontable.cpp
+1426622525 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\transitiontable.cpp
 
 1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\dfa.cpp
 	"DFA.h"
@@ -153,4 +152,44 @@
 	<list>
 	<set>
 	<string>
+
+1426622525 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfaminimizer.cpp
+	"DfaMinimizer.h"
+	"DFA.h"
+	"State.h"
+	<map>
+	<iostream>
+	<cmath>
+	<typeinfo>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1426622525 c:\users\dyaa\documents\github\lexical-analyzer\version 1\dfaminimizer.h
+	"DFA.h"
+	"State.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1426622748 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\controller.cpp
+	<iostream>
+	"NFA.h"
+	<fstream>
+	"DFA.h"
 

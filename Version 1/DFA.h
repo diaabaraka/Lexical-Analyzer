@@ -19,11 +19,14 @@ using namespace std;
 class DFA
 {
 public:
-    DFA();
+    DFA(State*start,set<string>*input);
     virtual ~DFA();
     void epsilonClosure(set<State*>states,set<State*>&result);
     void moveTransition(set<State*>states,string input,set<State*>&result);
     void convertToDFA(void);
+    vector<State*> getDfaTable();
+    void printState(set<State*>*Set);
+
 protected:
 private:
     vector<State*>DFAtable;

@@ -12,7 +12,7 @@ class State
 public:
     State();
     State(int state_ID);
-    State(int stat_ID,set<State*>nfaStates);
+    State(int stat_ID,set<State*>&nfaStates);
     bool isAccepting();
     void setAccepting();
 //        vector<> getEdges();

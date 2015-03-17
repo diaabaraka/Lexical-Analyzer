@@ -59,17 +59,17 @@ string NFA :: parse(string expression){
                 // regular expression
                 regularExpression = true;
                 regularDefinition = false;
-                while(expression[i] == ' ')i++;
-
-                i--;
+//                while(expression[i] == ' ')i++;
+//
+//                i--;
 
             }
             else if(expression[i] == '='){
                 // regular definition
                 regularDefinition = regularDefinition_0 = true;
-                while(expression[i] == ' ')i++;
-
-                i--;
+//                while(expression[i] == ' ')i++;
+//
+//                i--;
 
 
             }
@@ -317,7 +317,7 @@ State* NFA:: Eval(string postFix){
 
     st.second->setAccepting();
     cout<<exprName<<" Name"<<endl;
-    BFS(st.first);
+//    BFS(st.first);
     if(regularDefinition){
         regular_definition[exprName] = st.first;
     }

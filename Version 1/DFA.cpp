@@ -13,9 +13,10 @@
 
 #include <set>
 #include <string>
-DFA::DFA()
+DFA::DFA(State*start,set<string>*input)
 {
-    //ctor
+    startingState=start;
+    inputSet=*input;
 }
 void DFA::epsilonClosure(set<State*>states,set<State*>&result)
 {
@@ -37,7 +38,7 @@ void DFA::epsilonClosure(set<State*>states,set<State*>&result)
         vector<State*>destStates;
         //Assume that the input is epsilon=zero.
 
-        curr->getTrasitions(0,destStates);
+        curr->getTrasitions("-1",destStates);
         State* s;
         for(int i=0; i<destStates.size(); i++)
         {
@@ -91,9 +92,12 @@ void DFA  ::convertToDFA()
 
 
     epsilonClosure(NFAstartingStates,epsilonStates);
+
     // now DFAstartinng states include all states that reached from the
     //NFAstarting states by epsilon input.
     State *DFAstartingState=new State(ID_counter++,epsilonStates);
+//    set<State*>x;
+//    DFAstartingState->getNFAstates(x);
 
     DFAtable.push_back(DFAstartingState);
     vector <State*> unmarkedStates;
@@ -107,12 +111,18 @@ void DFA  ::convertToDFA()
         curr=unmarkedStates[unmarkedStates.size()-1];
         unmarkedStates.pop_back();
         curr->getNFAstates(NFAstates);
+
+
         set<string>::iterator iter;
         for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
         {
             input=*iter;
             moveTransition(NFAstates,input,moveStates);
+
+
             epsilonClosure(moveStates,epsilonOfMoves);
+
+
             State *st;
             int i=0;
             for(; i<DFAtable.size(); i++)
@@ -127,8 +137,11 @@ void DFA  ::convertToDFA()
 
 
             }
-            if(i==DFAtable.size())
+            if(i==DFAtable.size()&&epsilonOfMoves.size()!=0)
             {
+//                                printState(&epsilonOfMoves);
+//                cout<<"\n------------------\n";
+//cout<<ID_counter;
                 State* newState=new State(ID_counter++,epsilonOfMoves);
                 DFAtable.push_back(newState);
                 unmarkedStates.push_back(newState);
@@ -146,6 +159,28 @@ void DFA  ::convertToDFA()
 
 
 
+}
+vector<State*> DFA:: getDfaTable()
+{
+
+    return DFAtable;
+
+
+}
+
+void DFA::printState(set<State*>*Set)
+{
+    set<State*>s=*Set;State* st;
+    set<State*>::iterator iter;
+
+    for (iter = s.begin(); iter != s.end(); ++iter)
+    {
+        st=*iter;
+        cout<<st->get_Id()<<" : "<<endl;
+
+
+
+    }
 }
 
 DFA::~DFA()

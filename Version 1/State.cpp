@@ -19,7 +19,7 @@ State::State(int state_ID)
 
 }
 //This constructor is only for DFA states.
-State::State(int state_ID,set<State*>nfaStates)
+State::State(int state_ID,set<State*>&nfaStates)
 {
     state_Id=state_ID;
     NFAstates=nfaStates;
@@ -27,7 +27,7 @@ State::State(int state_ID,set<State*>nfaStates)
     acceptingState=false;//Intially
     set<State*>::iterator iter;
     State*st;
-    for (iter = nfaStates.begin(); iter != nfaStates.end(); ++iter)
+    for (iter = NFAstates.begin(); iter != NFAstates.end(); ++iter)
     {
         st=*iter;
         if(st->isAccepting())
