@@ -4,6 +4,7 @@
 #include<vector>
 #include <set>
 #include <string>
+#include <iostream>
 using namespace std;
 
 class State
@@ -13,6 +14,7 @@ public:
     State(int state_ID);
     State(int stat_ID,set<State*>nfaStates);
     bool isAccepting();
+    void setAccepting();
 //        vector<> getEdges();
     int get_Id();
 
@@ -32,7 +34,7 @@ private:
     set<State*>NFAstates;
     bool acceptingState;
     string classType ;
-
+    //int h = 0;
 
 
 

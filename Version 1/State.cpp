@@ -7,12 +7,15 @@ using namespace std;
 State::State()
 {
     //ctor
+    acceptingState = false;
 }
 
 State::State(int state_ID)
 {
 
     state_Id = state_ID;
+    acceptingState = false;
+
 
 }
 //This constructor is only for DFA states.
@@ -55,6 +58,15 @@ int State :: get_Id()
 
 
 }
+
+void State :: setAccepting(){
+
+    acceptingState = true;
+    cout<<"this is the time number  "<<state_Id<<endl;
+   // h++;
+
+}
+
 void State:: addTransition(string input,State* dest)
 {
 

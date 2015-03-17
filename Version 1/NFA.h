@@ -26,15 +26,19 @@ class NFA
         void checkOperator(string expr, bool dete[] );
         State* Eval(string postFix);
         void BFS(State* x);
-
+        string AddEscape(string x);
+        pair<State* , State*> cloneGraph(State* x);
     protected:
     private:
-        map<string , State>regular_expression;
-        map<string , State>regular_definition;
+        map<string , State*>regular_expression;
+        map<string , State*>regular_definition;
         set<string> inputSet;
-
+        queue<char> special;
         int counter = 0;
         State startState ;
+        string exprName;
+        bool regularDefinition;
+
 
 
 };
