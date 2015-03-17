@@ -17,7 +17,7 @@ class NFA
     public:
         NFA();
         string parse(string expression);
-        State compine();
+        State* compine();
         string postfix(string expression);
         bool high_priority(char first , char top);
         bool isOperator(char x);
@@ -28,6 +28,9 @@ class NFA
         void BFS(State* x);
         string AddEscape(string x);
         pair<State* , State*> cloneGraph(State* x);
+        set<string> getInputSet();
+        set<string> keyWords;
+        set<string> punctuation;
     protected:
     private:
         map<string , State*>regular_expression;
@@ -35,7 +38,7 @@ class NFA
         set<string> inputSet;
         queue<char> special;
         int counter = 0;
-        State startState ;
+        State* startState ;
         string exprName;
         bool regularDefinition;
 

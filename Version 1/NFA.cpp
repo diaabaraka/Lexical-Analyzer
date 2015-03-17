@@ -13,7 +13,44 @@ string NFA :: parse(string expression){
 
         string name = "" , expression_0 = "";
         exprName = "";
-        bool regularExpression = false , regularDefinition_0 = false;
+        bool regularExpression = false , regularDefinition_0 = false , key_word = false;
+        if(expression[0] == '{' || expression[0] == '['){
+            // keyWords
+
+            if(expression[0] == '{' ){
+                key_word = true;
+            }
+
+
+            for(int i = 1 ; i < expression.size()-1 ; i++){
+
+                if(expression[i] == '\\'){
+                    continue;
+                }
+                else if(expression[i] == ' '){
+                    if(expression_0.compare("") != 0){
+                        if(key_word){
+                            keyWords.insert(expression_0);
+                        }
+                        else punctuation.insert(expression_0);
+
+                        expression_0 = "";
+
+
+                    }
+                }
+                else {
+                    expression_0.push_back(expression[i]);
+                }
+
+            }
+
+
+        }
+
+
+
+
         for(int i = 0 ; i < expression.size() ; i++){
 
 
@@ -22,15 +59,23 @@ string NFA :: parse(string expression){
                 // regular expression
                 regularExpression = true;
                 regularDefinition = false;
+                while(expression[i] == ' ')i++;
+
+                i--;
 
             }
             else if(expression[i] == '='){
                 // regular definition
                 regularDefinition = regularDefinition_0 = true;
+                while(expression[i] == ' ')i++;
+
+                i--;
 
 
             }
-            else if(!regularDefinition_0 && !regularExpression){
+            else if(!regularDefinition_0 && !regularExpression && expression[i] != ' '){
+
+
 
                 name += expression[i];
                 exprName.push_back(expression[i]);
@@ -275,6 +320,10 @@ State* NFA:: Eval(string postFix){
     BFS(st.first);
     if(regularDefinition){
         regular_definition[exprName] = st.first;
+    }
+    else{
+        st.second->set_Type(exprName);
+        regular_expression[exprName] = st.first;
     }
   //  cout<<"why"<<endl;
     return st.first;
@@ -712,9 +761,30 @@ bool NFA:: high_priority(char first , char top){
 }
 
 
-State NFA :: compine(){
+State* NFA :: compine(){
 
+    startState = new State(counter++);
+    State* newEnd = new State(counter++);
+
+
+     map<string, State*>::iterator iter;
+
+        for (iter = regular_expression.begin(); iter != regular_expression.end(); ++iter) {
+
+            startState->addTransition("-1" , iter->second);
+
+        }
+
+
+
+    return startState;
+
+}
+set<string> NFA:: getInputSet(){
+
+    return inputSet;
 
 
 }
+
 
