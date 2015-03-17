@@ -13,6 +13,7 @@
 #include <set>
 #include <algorithm>
 #include <list>
+#include <sstream>
 
 #include <set>
 #include <string>
@@ -36,18 +37,20 @@
 #define RREP(i, N) RFOR(i, N, 0)
 #define FILL(A,value) memset(A,value,sizeof(A))
 
-
+vector <vector <State*> > finalTable;
 
 
  int * DfaMinimizer::setTheMappingArr( vector <vector <State*> > working_set,int n){
 
-  int arr[n];
+  int *arr=new int [n];
 
   REP(i,SZ(working_set)){
 
-  REP(j,SZ(working_set[i])){
+ vector <State*> v=working_set[i];
 
-  State* s= working_set[i][j];
+  REP(j,SZ(v)){
+
+  State* s= v[j];
 
    arr[s->get_Id()]=i;
 
@@ -55,20 +58,23 @@
 
   }
 
+
+   return arr;
+
    }
 
 
-string DfaMinimizer::hashingFunction( vector <State*> GoingToStatesVector)
+string DfaMinimizer::hashingFunction( vector <int> GoingToStatesVector)
 {
   string str="";
 
   REP(i,SZ(GoingToStatesVector)){
 
-  str+=GoingToStatesVector[i]->get_Id();
+  str+=GoingToStatesVector[i];
 
   }
 
-
+ return str;
 }
 
 
@@ -101,11 +107,22 @@ string DfaMinimizer::hashingFunction( vector <State*> GoingToStatesVector)
   }
 //***********************
 
-    int * mappingArr=setTheMappingArr(working_set,SZ(allStates));
+
+
+ vector<State*> vds=working_set[1];
+
+ // cout<<SZ(vds)<<endl;
+/*
+REP(i,SZ(vds)){
+ cout<<vds[i]->get_Id()<<" " <<endl;
+}
+*/
+
+  //  int * mappingArr=setTheMappingArr(working_set,SZ(allStates));
 
 
 
-   CreateTheTwoDArray(working_set,SZ(allStates),mappingArr);
+   CreateTheTwoDArray(working_set,SZ(allStates));
 
 
 
@@ -132,46 +149,126 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set){
 
 
 
+  REP(i,SZ(working_set)){
+
+    vector<State*> temp = working_set[i];
+    finalTable.pb(temp);
+  }
+
+
+   REP(i,SZ(finalTable)){
+
+      vector<State*> temp = finalTable[i];
+
+   REP(j,SZ(temp)){
+
+       cout<<temp[j]->get_Id()<<" "<<endl;
+
+   }
+
+   cout<<endl;
+
+  }
+
+  return;
+
 }
 
-  void DfaMinimizer::CreateTheTwoDArray(vector <vector <State*> > working_set,int n,int * mappingArr){
+ bool DfaMinimizer::equals(vector <vector <State*> > working_set,vector <vector <State*> > working_set2){
+
+  if(SZ(working_set)!=SZ(working_set2))return false;
+
+   REP(i,SZ(working_set)){
+
+   vector <State*> v1=working_set[i];
+   vector <State*> v2=working_set2[i];
+
+   if(SZ(v1)!=SZ(v2))return false;
+
+   REP(j,SZ(v1))  {
+
+   if(v1[j]->get_Id()!=v2[j]->get_Id())return false;
+
+   }
+
+
+
+   }
+return true;
+
+ }
+
+
+
+  void DfaMinimizer::CreateTheTwoDArray(vector <vector <State*> > working_set,int n){
 
 
    while(1){
 
    map <string , vector<State*> > hmap;
 
+    int * mappingArr=setTheMappingArr(working_set,100); ///////////
+
+
    REP(i,SZ(working_set)){
 
    vector <State*> working_vector=working_set[i];
 
-    REP(j,SZ(working_vector)){
+  string constt="b";
+
+ int a = i;
+stringstream ss;
+ss << a;
+string str = ss.str();
+
+   constt.append(str);
+
+ //  cout<<"bbbbbbbbbbbbbbbbb"<<endl;
+  // cout<<constt<<endl;
+
+
+
+    REP(j,SZ(working_vector)){     // hena 3la mostawa el magmo3a el wa7da
+
+  //hmap.clear();
+
+   if(SZ(working_vector)==1) {
+
+    finalTable.pb(working_vector);
+
+        break;  ////////////////////////
+   }
 
    State* s= working_vector[j];
 
   vector <State*> tempGoingToVector;
       tempGoingToVector.clear();
-     vector <State*> GoingToStatesVector;
+     vector <int> GoingToStatesVector;
          GoingToStatesVector.clear();
 
     set<string>::iterator iter;
 
          set<string>inputSet;            ////////////// waiting for consturctor
+         inputSet.insert("1");
+         inputSet.insert("0");
 
         for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
         {
+
         string input=*iter;
 
      s->getTrasitions(input, tempGoingToVector);
 
      State* goingToState=tempGoingToVector[0];
 
-       GoingToStatesVector.pb(goingToState);
+          GoingToStatesVector.pb(mappingArr[goingToState->get_Id()]);
 
         }
    // state S going to GoingtoStatesVector states
 
-   string hf=hashingFunction(GoingToStatesVector);
+  string hf=constt+hashingFunction(GoingToStatesVector);
+
+
 
   if(hmap.count(hf)){
 
@@ -181,30 +278,67 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set){
 else{
 vector <State*> v;
 v.pb(s);
-hmap[hf]=v;
+
+ //cout<<hf<<endl;
+
+  hmap[hf]=v;
+
 }
 
 
+
+/*
+vector <vector <State*> > working_set2;
+
+ working_set2=makeTheNewWorkSet(hmap);
+
+   working_set=working_set2;
+*/
 
 
     }
 
 
 
+
    }
+/*
+cout<<"firstttttt"<<endl;
+
+REP(i,SZ(working_set)){
+
+  REP(j,SZ(working_set[i])){
+
+ vector <State*> m=working_set[i];
+
+  State* s= m[j];
+
+   cout<<s->get_Id()<<endl;
+
+  }
+  cout<<endl;
+
+  }
+
+*/
+
+
 
 vector <vector <State*> > working_set2;
 
  working_set2=makeTheNewWorkSet(hmap);
- // compare
 
- if( equal(working_set.begin(), working_set.end(), working_set2.begin()) ){
+
+ if( equals(working_set,working_set2) ){
 
     sendToNextStage(working_set);
+   break;
 
  }
 
  working_set=working_set2;
+
+
 
    }
 

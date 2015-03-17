@@ -58,7 +58,7 @@
 
 1426622525 source:c:\users\dyaa\documents\github\lexical-analyzer\version 1\transitiontable.cpp
 
-1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\dfa.cpp
+1426631899 source:c:\users\wido\documents\lexical-analyzer\version 1\dfa.cpp
 	"DFA.h"
 	"State.h"
 	<map>
@@ -73,7 +73,7 @@
 	<set>
 	<string>
 
-1426385785 c:\users\wido\documents\lexical-analyzer\version 1\dfa.h
+1426631899 c:\users\wido\documents\lexical-analyzer\version 1\dfa.h
 	<map>
 	<set>
 	<string>
@@ -87,21 +87,19 @@
 	<algorithm>
 	<list>
 
-1426608812 c:\users\wido\documents\lexical-analyzer\version 1\state.h
+1426631900 c:\users\wido\documents\lexical-analyzer\version 1\state.h
 	<map>
 	<vector>
 	<set>
 	<string>
 	<iostream>
 
-1426385771 source:c:\users\wido\documents\lexical-analyzer\version 1\main.cpp
-	<iostream>
-	<map>
+1426631900 source:c:\users\wido\documents\lexical-analyzer\version 1\main.cpp
 
-1426608812 source:c:\users\wido\documents\lexical-analyzer\version 1\nfa.cpp
+1426631899 source:c:\users\wido\documents\lexical-analyzer\version 1\nfa.cpp
 	"NFA.h"
 
-1426608812 c:\users\wido\documents\lexical-analyzer\version 1\nfa.h
+1426617247 c:\users\wido\documents\lexical-analyzer\version 1\nfa.h
 	"State.h"
 	<iostream>
 	<string>
@@ -111,7 +109,7 @@
 	<string.h>
 	<stack>
 
-1426608812 source:c:\users\wido\documents\lexical-analyzer\version 1\state.cpp
+1426631900 source:c:\users\wido\documents\lexical-analyzer\version 1\state.cpp
 	"State.h"
 	<map>
 	<set>
@@ -119,7 +117,7 @@
 
 1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\transitiontable.cpp
 
-1426613304 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
+1426631973 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
 	"DfaMinimizer.h"
 	"DFA.h"
 	"State.h"
@@ -135,10 +133,11 @@
 	<set>
 	<algorithm>
 	<list>
+	<sstream>
 	<set>
 	<string>
 
-1426613219 c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.h
+1426631986 c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.h
 	"DFA.h"
 	"State.h"
 	<map>
@@ -192,4 +191,16 @@
 	"NFA.h"
 	<fstream>
 	"DFA.h"
+
+1426631899 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
+	<iostream>
+	"NFA.h"
+	<fstream>
+	"DFA.h"
+
+1426631879 source:c:\users\wido\documents\lexical-analyzer\version 1\waleed test main.cpp
+	<iostream>
+	<map>
+	"State.h"
+	"DfaMinimizer.h"
 

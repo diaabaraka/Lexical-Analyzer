@@ -21,13 +21,14 @@ class DfaMinimizer
     public:
         DfaMinimizer(vector <State*> allStates);
         void minimize(vector <State*> allStates);
-        string hashingFunction( vector <State*> GoingToStatesVector);
+    bool equals(vector <vector <State*> > working_set,vector <vector <State*> > working_set2);
+        string hashingFunction( vector <int> GoingToStatesVector);
 
         vector <vector <State*> > makeTheNewWorkSet( map <string , vector<State*> > hmap );
       void sendToNextStage(vector <vector <State*> > working_set);
 
          int * setTheMappingArr( vector <vector <State*> > working_set,int n);
- void CreateTheTwoDArray(vector <vector <State*> > working_set,int n,int * mappingArr);
+ void CreateTheTwoDArray(vector <vector <State*> > working_set,int n);
         virtual ~DfaMinimizer();
     protected:
     private:

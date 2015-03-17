@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Controller.cpp" />
+		<Unit filename="Controller.h" />
 		<Unit filename="DFA.cpp" />
 		<Unit filename="DFA.h" />
 		<Unit filename="DfaMinimizer.cpp" />
@@ -42,6 +44,7 @@
 		<Unit filename="State.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="transitiontable.cpp" />
+		<Unit filename="waleed test main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
