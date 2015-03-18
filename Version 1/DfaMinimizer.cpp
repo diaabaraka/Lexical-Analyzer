@@ -250,9 +250,8 @@ string str = ss.str();
     set<string>::iterator iter;
 
          set<string>inputSet;            ////////////// waiting for consturctor
-         inputSet.insert("1");
-         inputSet.insert("2");
-   inputSet.insert("3");
+         inputSet.insert("a");
+         inputSet.insert("b");
 
         for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
         {
