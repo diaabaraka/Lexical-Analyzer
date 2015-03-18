@@ -44,7 +44,11 @@ string NFA :: parse(string expression){
                 }
 
             }
-
+             if(key_word){
+                            keyWords.insert(expression_0);
+                        }
+                        else punctuation.insert(expression_0);
+        return "";
 
         }
 
@@ -55,21 +59,17 @@ string NFA :: parse(string expression){
 
 
 
-            if(expression[i] == ':'){
+            if(!regularDefinition_0 && !regularExpression && expression[i] == ':'){
                 // regular expression
                 regularExpression = true;
                 regularDefinition = false;
-//                while(expression[i] == ' ')i++;
-//
-//                i--;
+
 
             }
-            else if(expression[i] == '='){
+            else if(!regularDefinition_0 && !regularExpression &&expression[i] == '='){
                 // regular definition
                 regularDefinition = regularDefinition_0 = true;
-//                while(expression[i] == ' ')i++;
-//
-//                i--;
+
 
 
             }
@@ -82,7 +82,8 @@ string NFA :: parse(string expression){
 
             }
             else{
-                expression_0 += expression[i];
+                cout<<expression[i]<<endl;
+                expression_0.push_back(expression[i]);
             }
 
 
@@ -91,7 +92,7 @@ string NFA :: parse(string expression){
 
        // State start(counter++);
         // we will transforme the expression to postfix expression
-        cout<<"jgkkgldsjkkkkkkkkkkkk "<<exprName<<endl;
+        cout<<"jgkkgldsjkkkkkkkkkkkk "<<expression_0<<endl;
         expression_0 = postfix(expression_0);
         // now we have the postfix expression we want to parse it
 
@@ -111,7 +112,7 @@ State* NFA:: Eval(string postFix){
     string eps = "-1";
     stack< pair<State* , State*> > states;
     counter = 0;
-   // cout<< "EVAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"<< postFix<<endl;
+    cout<< "EVAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"<< postFix<<endl;
     for(int i = 0 ; i < postFix.size() ; i++){
 
         if(postFix[i] == ' '){
@@ -156,13 +157,17 @@ State* NFA:: Eval(string postFix){
                         dash = false;
                         // here we handle expression like A-Z
                         // we create start and end node with 26 edges between them
-
+                        if(operand.size()==1){
+                            first = sec = '-';
+                        }
                         State* start = new State(counter++);
                         State* End = new State(counter++);
 
                         string tmp = "";
                         tmp.push_back(first);
                         start->addTransition(tmp , End);
+                        inputSet.insert(tmp);
+
                         while(tmp[0] != sec){
                             tmp = "";
                             first = (char) first+1;
@@ -317,7 +322,7 @@ State* NFA:: Eval(string postFix){
 
     st.second->setAccepting();
     cout<<exprName<<" Name"<<endl;
-//    BFS(st.first);
+    BFS(st.first);
     if(regularDefinition){
         regular_definition[exprName] = st.first;
     }
@@ -550,7 +555,7 @@ string NFA:: postfix(string expression){
 
 string NFA:: AddEscape(string expr){
 
-
+    cout<<expr<<endl;
     string result = "";
     bool slash = false;
     for(int i = 0 ; i < expr.size() ; i++){
@@ -714,7 +719,8 @@ bool NFA:: isOperator(char x){
 
 bool NFA:: isChar(char x){
         if((x >= 'a' && x <= 'z') ||
-         (x >= 'A' && x <= 'Z') || x == '`'||(x >= '0' && x <= '9')){
+         (x >= 'A' && x <= 'Z') || x == '`'||(x >= '0' && x <= '9')||x == '>' ||
+           x == '<' || x =='!' || x =='/'){
 
             return true;
 
