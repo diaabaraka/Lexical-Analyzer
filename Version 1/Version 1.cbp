@@ -42,6 +42,8 @@
 		<Unit filename="NFA.h" />
 		<Unit filename="State.cpp" />
 		<Unit filename="State.h" />
+		<Unit filename="Tranzation.cpp" />
+		<Unit filename="Tranzation.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="transitiontable.cpp" />
 		<Unit filename="waleed test main.cpp" />

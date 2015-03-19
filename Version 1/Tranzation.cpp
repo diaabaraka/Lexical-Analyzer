@@ -25,10 +25,19 @@ set<string>punctuation ;
 Tranzation::Tranzation(set <string> input , vector <State*>states , set<string>keys , set <string>pun)
 {
     inputScope=input ;
-    states=dfaTable ;
+    dfaTable=states ;
     kWards=keys;
     punctuation=pun;
 
+//        set<string, State*>::iterator iter;
+//
+//        for (iter = inputScope.begin(); iter != inputScope.end(); ++iter) {
+//
+//            cout<<*iter<<endl;
+//
+//        }
+
+    cout<<"finish construtor\n";
 }
 
 
@@ -39,7 +48,7 @@ Tranzation::Tranzation(set <string> input , vector <State*>states , set<string>k
 bool Tranzation:: isKeyWords (string token )
 {
 
-    return (kWards.find(token)!=inputScope.end());
+    return (kWards.find(token)!=kWards.end());
 
 
 }
@@ -47,7 +56,7 @@ bool Tranzation:: isKeyWords (string token )
 bool Tranzation :: isPunctuation(string s)
 {
 
-   return (punctuation.find(s)!=inputScope.end());
+   return (punctuation.find(s)!=punctuation.end());
 
 
 }
@@ -58,11 +67,18 @@ bool Tranzation :: isPunctuation(string s)
 void Tranzation:: parse()
 {
 
+cout<<"int table\n";
 
+//State* startState = NULL;
 
 State* startState = dfaTable [0];
 
+cout<<"int table\n";
+
+
+
 State* state =startState ;
+
 
 
 fstream fin ;
@@ -81,18 +97,15 @@ vector<State*>nextStates;
 while (!fin.eof() ) {
 
 	fin.get(my_character);
-
-    bool is_out = (inputScope.find(my_character+"")==inputScope.end());
-
-    if(is_out)
-    {
-       cout << my_character << " is not exist in the scope of the language " << endl ;
-       return  ;
-    }
-
-
-	if (my_character == ' ')
+	if( fin.eof() )
+        break;
+    string yy = "";
+    yy.push_back(my_character);
+    //cout<<my_character<<" in the loop"<<endl;
+	if (my_character == ' '||my_character=='\n')
 	{
+
+
 	  if (finalState !="" && token !="")
 	  {
 	    if(isKeyWords(token))
@@ -101,16 +114,19 @@ while (!fin.eof() ) {
 
 	    }else
 	    {
-	      cout << finalState ;
+	      cout << finalState << endl  ;
 	    }
 	    token ="";
 	    finalState="";
 	    state =startState ;
 
+
 	  }
 
-	}else if (isPunctuation(my_character+"") )
+	}else if (isPunctuation(yy) )
 	{
+
+
 	   if(finalState!=""&&token!="")
 	   {
 	       if(isKeyWords(token))
@@ -118,7 +134,7 @@ while (!fin.eof() ) {
 	         cout << token << endl ;
 	      }else
 	      {
-	        cout << finalState ;
+	        cout << finalState <<endl ;
 
 	      }
 	   }
@@ -127,21 +143,55 @@ while (!fin.eof() ) {
 	   finalState ="";
 	   state=startState ;
 
+
 	}else
 	{
 
-	   token+=my_character+"";
+	      bool is_out = (inputScope.find(yy)==inputScope.end());
+
+    if(is_out)
+    {
+
+       if (finalState !="" && token !="")
+	  {
+
+	    if(isKeyWords(token)||isPunctuation(token))
+	    {
+	       cout<<token<<endl;
+
+	    }else
+	    {
+	      cout << finalState<<endl ;
+	    }
+
+
+	  }
+
+	         cout << my_character << " is not exist in the scope of the language " << endl ;
+
+       return  ;
+    }
 
 
 
-	state->getTrasitions(my_character+"", nextStates);
+
+
+
+
+
+	state->getTrasitions(yy, nextStates);
+
+
+
+
 
 
 
 	if(nextStates.size()==0)
 	{
 
-	   if (finalState!=""&&token!="")
+
+     	   if (finalState!=""&&token!="")
 	   {
 	      if(isKeyWords(token))
 	      {
@@ -155,8 +205,21 @@ while (!fin.eof() ) {
 	      }
 
 	      finalState = "" ;
+	      token=yy;
 
-	      state =startState ;
+	     startState ->getTrasitions(yy,nextStates );
+	     if(nextStates.empty()){
+           cout<<"error " << endl ;
+           return ;
+	     }
+	     state = nextStates[0];
+
+	     if(state->isAccepting())
+         {
+            finalState=state->getType();
+
+         }
+
 
 
 
@@ -166,13 +229,16 @@ while (!fin.eof() ) {
 
 	}else
 	{
+       token.push_back(my_character);
 
         state= nextStates[0];
 
 
 	    if (state ->isAccepting() == true )
 	    {
+
 	      finalState = state ->getType() ;
+
 	    }
 
      }
@@ -184,10 +250,20 @@ while (!fin.eof() ) {
 
 
 
+	  if (finalState !="" && token !="")
+	  {
+
+	    if(isKeyWords(token)||isPunctuation(token))
+	    {
+	       cout<<token<<endl;
+
+	    }else
+	    {
+	      cout << finalState<<endl ;
+	    }
 
 
-
-
+	  }
 
 
 }

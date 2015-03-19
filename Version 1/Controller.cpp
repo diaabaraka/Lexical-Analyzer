@@ -25,12 +25,22 @@ int main()
   }
 
     State* start = x->compine();
+//            set<string>input_2 = x->getInputSet();
+//
+//        set<string, State*>::iterator iter;
+//
+//        for (iter = input_2.begin(); iter != input_2.end(); ++iter) {
+//
+//            cout<<*iter<<endl;
+//
+//        }
+    cout<<"parse finsh \n";
     set<string>input = x->getInputSet();
 	DFA* dfa=new DFA(start,&input);
   	dfa->convertToDFA();
   	vector<State*>dfaTable=dfa->getDfaTable();
-    x->BFS(dfaTable[0]);
-
+   // x->BFS(dfaTable[0]);
+    cout<<"DFA finish\n";
        set<string>keyWards= x->keyWords;
    set<string>punc = x->punctuation;
 

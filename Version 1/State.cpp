@@ -33,6 +33,7 @@ State::State(int state_ID,set<State*>&nfaStates)
         if(st->isAccepting())
         {
             acceptingState=true;//for the new DFA state
+            set_Type(st->getType());
             break;
         }
     }
@@ -62,7 +63,7 @@ int State :: get_Id()
 void State :: setAccepting(){
 
     acceptingState = true;
-    cout<<"this is the time number  "<<state_Id<<endl;
+ //   cout<<"this is the time number  "<<state_Id<<endl;
    // h++;
 
 }
