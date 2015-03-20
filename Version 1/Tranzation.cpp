@@ -369,8 +369,8 @@ while (i < word.size()) {
 
 	  }
 
-	  else{
-       // cout<<"error"<<endl;
+	  else if(token != ""){
+        cout<<"error"<<endl;
 	  }
 return ;
 
