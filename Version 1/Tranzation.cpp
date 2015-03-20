@@ -24,6 +24,8 @@ set<string>kWards;
 
 set<string>punctuation ;
 
+set<string>symbolTable ;
+
 Tranzation::Tranzation(set <string> input , vector <State*>states , set<string>keys , set <string>pun)
 {
     inputScope=input ;
@@ -39,7 +41,7 @@ Tranzation::Tranzation(set <string> input , vector <State*>states , set<string>k
 //
 //        }
 
-    cout<<"finish construtor\n";
+
 }
 
 
@@ -161,6 +163,10 @@ while (i < word.size()) {
 	    }else
 	    {
 	      cout << finalState << endl  ;
+	      if(finalState.compare("id")==0)
+	      {
+	        symbolTable.insert(token);
+	      }
 	    }
 	    token ="";
 	    finalState="";
@@ -168,7 +174,7 @@ while (i < word.size()) {
 
 
 	  }
-	  else{
+	  else if(token!=""){
         cout<<"error"<<endl;
 	  }
 
@@ -184,6 +190,11 @@ while (i < word.size()) {
 	      }else
 	      {
 	        cout << finalState <<endl ;
+
+              if(finalState.compare("id")==0)
+	         {
+	           symbolTable.insert(token);
+	         }
 
 	      }
 	   }
@@ -211,11 +222,18 @@ while (i < word.size()) {
 	    }else
 	    {
 	      cout << finalState<<endl ;
+
+	        if(finalState.compare("id")==0)
+	         {
+	           symbolTable.insert(token);
+	         }
+
+
 	    }
 
 
 	  }
-	  else{
+	  else if(token!=""){
         cout<<"error"<<endl;
 	  }
 
@@ -229,7 +247,6 @@ while (i < word.size()) {
 
 
 
-       return  ;
     }
 
 
@@ -260,6 +277,11 @@ while (i < word.size()) {
                 else
                cout << finalState << endl ;
 
+                   if(finalState.compare("id")==0)
+	               {
+	                  symbolTable.insert(token);
+                   }
+
 
                string send = word.substr(i,word.length()-i);
 
@@ -279,7 +301,13 @@ while (i < word.size()) {
 	      }else
 	      {
 
+
 	         cout <<finalState <<endl ;
+
+                   if(finalState.compare("id")==0)
+	               {
+	                  symbolTable.insert(token);
+                   }
 
 	      }
 
@@ -353,6 +381,11 @@ while (i < word.size()) {
             {
                cout << finalState << endl ;
 
+                   if(finalState.compare("id")==0)
+	               {
+	                  symbolTable.insert(token);
+                   }
+
 
                string send = word.substr(lastAccpeting.length(),word.length()-lastAccpeting.length());
               // cout << "lAstAcceptin "<<lastAccpeting<<endl;
@@ -364,6 +397,11 @@ while (i < word.size()) {
 
             }
 	      cout << finalState<<endl ;
+
+                   if(finalState.compare("id")==0)
+	               {
+	                  symbolTable.insert(token);
+                   }
 	    }
 
 
@@ -372,6 +410,28 @@ while (i < word.size()) {
 	  else if(token != ""){
         cout<<"error"<<endl;
 	  }
+
+	 if (!symbolTable.empty())
+	 {
+	     ofstream out_file;
+
+       out_file.open("outputFile.txt");
+
+       out_file << "The Identifers\n_______________\n" << endl ;
+
+	      set<string>::iterator  iter ;
+
+	      for(iter=symbolTable.begin();iter!=symbolTable.end();iter++)
+	      {
+	         out_file<<*iter<<endl ;
+
+
+	      }
+
+        out_file.close();
+	 }
+
+
 return ;
 
 

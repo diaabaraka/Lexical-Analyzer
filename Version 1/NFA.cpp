@@ -1,5 +1,5 @@
 #include "NFA.h"
-
+#include <fstream>
 NFA::NFA()
 {
     startState = NULL ;
@@ -424,49 +424,51 @@ pair<State* , State*> NFA:: cloneGraph(State* start){
 void NFA:: BFS(State* start){
 
 //     if(exprName.compare("relop")==0){
-//           set<int> found;
-//
-//    queue<State*> q;
-//
-//    q.push(start);
-//
-//
-//    while(!q.empty()){
-//
-//        State* tmp = q.front();
-//        q.pop();
-//
-//        if(found.find(tmp->get_Id())!= found.end()){
-//            continue;
-//        }
-//        found.insert(tmp->get_Id());
-//        cout<<"Node :"<<tmp->get_Id() << endl;
-//
-//        if(tmp->isAccepting()){
-//            cout<<"Aceepting State ";
-//        }
-//        cout<< "connected to :"<<endl;
-//    multimap<string, State*>::iterator st;
-//    multimap<string,State*>transitions = tmp->getAllTransitions();
-//
-//    for(st = transitions.begin(); st != transitions.end(); ++st){
-//      State* tmp1 = (st->second);
-//      cout<< tmp1->get_Id() << st->first <<endl;
-//      q.push(tmp1);
-//
-//    }
-//    cout<< "<<<<<<<<<<<<<<<<<<<<\n";
-//
-//
-//
-//    }
+           set<int> found;
+ ofstream myfile;
+  myfile.open ("Drawing2.txt");
+
+    queue<State*> q;
+
+    q.push(start);
+
+
+    while(!q.empty()){
+
+        State* tmp = q.front();
+        q.pop();
+
+        if(found.find(tmp->get_Id())!= found.end()){
+            continue;
+        }
+        found.insert(tmp->get_Id());
+        myfile<<"Node :"<<tmp->get_Id() << endl;
+
+        if(tmp->isAccepting()){
+            myfile<<"Aceepting State ";
+        }
+        myfile<< "connected to :"<<endl;
+    multimap<string, State*>::iterator st;
+    multimap<string,State*>transitions = tmp->getAllTransitions();
+
+    for(st = transitions.begin(); st != transitions.end(); ++st){
+      State* tmp1 = (st->second);
+      myfile<< tmp1->get_Id() <<"  ----  "<< st->first <<endl;
+      q.push(tmp1);
+
+    }
+    myfile<< "<<<<<<<<<<<<<<<<<<<<\n";
+
+
+
+    }
 //
 //    cout<<"jjjjjjjjjjjj\n";
 //     }
 
 
 
-
+myfile.close();
 
 }
 

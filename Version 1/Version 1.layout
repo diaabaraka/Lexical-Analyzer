@@ -1,139 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-<<<<<<< HEAD
-	<File name="State.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-=======
 	<File name="DFA.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
->>>>>>> origin/master
 		<Cursor>
 			<Cursor1 position="851" topLine="15" />
 		</Cursor>
 	</File>
-<<<<<<< HEAD
-	<File name="Tranzation.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+	<File name="Tranzation.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3292" topLine="167" />
-		</Cursor>
-	</File>
-	<File name="Tranzation.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="406" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="243" topLine="16" />
-=======
-	<File name="main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="243" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="Tranzation.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3401" topLine="206" />
-		</Cursor>
-	</File>
-	<File name="Tranzation.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="406" topLine="15" />
->>>>>>> origin/master
-		</Cursor>
-	</File>
-	<File name="transitiontable.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2586" topLine="98" />
-		</Cursor>
-	</File>
-<<<<<<< HEAD
-	<File name="waleed test main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1265" topLine="16" />
-		</Cursor>
-	</File>
-	<File name="Controller.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="835" topLine="27" />
-		</Cursor>
-	</File>
-	<File name="DFA.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1674" topLine="79" />
-		</Cursor>
-	</File>
-	<File name="DFA.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="603" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="DfaMinimizer.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="577" topLine="12" />
-=======
-	<File name="Controller.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="813" topLine="28" />
-		</Cursor>
-	</File>
-	<File name="State.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="851" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="DfaMinimizer.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7816" topLine="446" />
-		</Cursor>
-	</File>
-	<File name="State.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="786" topLine="87" />
-		</Cursor>
-	</File>
-	<File name="NFA.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11406" topLine="423" />
->>>>>>> origin/master
-		</Cursor>
-	</File>
-	<File name="DfaMinimizer.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="1002" topLine="7" />
-		</Cursor>
-	</File>
-	<File name="NFA.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2396" topLine="90" />
-		</Cursor>
-	</File>
-	<File name="NFA.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="248" topLine="30" />
-		</Cursor>
-	</File>
-	<File name="State.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="786" topLine="87" />
-=======
-			<Cursor1 position="1002" topLine="8" />
-		</Cursor>
-	</File>
-	<File name="waleed test main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1476" topLine="58" />
-		</Cursor>
-	</File>
-	<File name="DFA.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1674" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="NFA.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="835" topLine="26" />
->>>>>>> origin/master
+			<Cursor1 position="5985" topLine="342" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

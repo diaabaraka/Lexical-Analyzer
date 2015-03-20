@@ -19,6 +19,8 @@
 class DfaMinimizer
 {
     public:
+          void  drawTable(vector <State*> allNewStates, set <string> inputSet);
+
         DfaMinimizer(vector <State*> allStates,set <string>inputSet);
 
         void minimize(vector <State*> allStates,set <string> inputSet);

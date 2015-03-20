@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <list>
 #include <sstream>
+#include <fstream>
 
 #include <set>
 #include <string>
@@ -159,6 +160,73 @@ State* DfaMinimizer::getState(int goingtoID,vector <State*>allStates){
 
 }
 
+  void DfaMinimizer::  drawTable(vector <State*> allNewStates, set <string> inputSet){
+
+    ofstream myfile;
+  myfile.open ("Drawing.txt");
+
+    myfile << "Writing this to a file.\n";
+
+    map<string , int> ID;
+    set<string>::iterator iter;
+
+   myfile<<"          ";
+   int x = 0;
+     for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+        {
+        string input=*iter;
+        myfile<<input<<" ";
+        ID[input] = x;
+        x++;
+          }
+     myfile<<endl;
+
+    REP(i,SZ(allNewStates)){
+    int arr[x];
+    for (int kk = 0;kk < x ; kk++ ){
+        arr[kk] = -1;
+
+    }
+
+    State* s=allNewStates[i];
+
+   myfile<<s->get_Id()<<"  ";
+
+ for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+        {
+        string input=*iter;
+      vector <State*> v;
+      v.clear();
+   s->getTrasitions(input,v);
+
+   if(SZ(v)>0){
+    arr[ID[input]] = v[0]->get_Id();
+  //  myfile<<v[0]->get_Id()<<" ";
+   }
+   else{
+ //   myfile << " ";
+   }
+    }
+    for (int kk = 0;kk < x ; kk++ ){
+
+        if(arr[kk] == -1) myfile<<" ";
+
+        myfile<<arr[kk]<<" ";
+
+    }
+ myfile <<endl;
+
+    }
+
+   myfile.close();
+  }
+
+
+
+
+
+
+
 
 void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,set <string> inputSet,vector<State*> allStates){
 
@@ -179,99 +247,123 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
   }
  cout<<endl;
 
-  int * mappingArr=setTheMappingArr(finalTable,n);
+   int * mappingArr=setTheMappingArr(finalTable,n);
+
+
+     set<string>::iterator iter;
+
+
+     for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+        {
+        string input=*iter;
+        cout<<input<<" ";
+          }
+
+
+
+
+
+
+//
+//  int * mappingArr=setTheMappingArr(finalTable,n);
 
   vector <State*> allNewStates;
 
   vector <State*> allStatesNew;
 
-   cout<<SZ(finalTable)<<endl;
+   cout<<SZ(finalTable)<<"aho"<<endl;
 
-
+//
+//
    REP(i,SZ(finalTable)){   // 3'laaaaat
 
-     // State *s=new State(i);
+      State *s=new State(i);
 
-    State* s=new State(3);
+   // State* s=new State(3);
 
-    //   allStatesNew.pb(s);
-
+      allStatesNew.pb(s);
    }
+//
+//
+//
+//
+
+   REP(i,SZ(finalTable)){
+
+     State* s=getState(i,allStatesNew);
 
 
+      vector<State*> v=finalTable[i];
+      State* old=v[0];
 
 
-//   REP(i,SZ(finalTable)){
-//
-//     State* s=getState(i,allStatesNew);
-//
-//      vector<State*> v=finalTable[i];
-//      State* old=v[0];
-//
-//
-//      if(old->isAccepting()){
-//        s->setAccepting();
-//      }
-//
-//        vector <State*> tempGoingToVector;
-//     vector <int> GoingToStatesVector;
-//         GoingToStatesVector.clear();
-//
-//       set<string>::iterator iter;
-//
-//
-//     for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
-//        {
-//
-//        string input=*iter;
-//          tempGoingToVector.clear();
-//
-//     old->getTrasitions(input, tempGoingToVector);
-//
-//      cout<<tempGoingToVector[0]->get_Id()<<endl;
-//
-//            if(SZ(tempGoingToVector)>0){
-//
-//     State* goingToState=tempGoingToVector[0];
-//
-//
-//        int goingtoID=mappingArr[goingToState->get_Id()];
-//
-//           cout<<goingtoID<<endl;
-//
-//           State* going=getState(goingtoID,allStatesNew); // allStates newwwwwwwww
-//
-//          s->addTransition(input,going);
-//
+      if(old->isAccepting()){
+        s->setAccepting();
+      }
+
+        vector <State*> tempGoingToVector;
+     vector <int> GoingToStatesVector;
+         GoingToStatesVector.clear();
+
+       set<string>::iterator iter;
+
+
+     for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+        {
+
+        string input=*iter;
+          tempGoingToVector.clear();
+
+     old->getTrasitions(input, tempGoingToVector);
+
+    //  cout<<tempGoingToVector[0]->get_Id()<<endl;
+
+            if(SZ(tempGoingToVector)>0){
+
+     State* goingToState=tempGoingToVector[0];
+
+
+        int goingtoID=mappingArr[goingToState->get_Id()];
+
+      //     cout<<goingtoID<<endl;
+
+          State* going=getState(goingtoID,allStatesNew); // allStates newwwwwwwww
+
+          s->addTransition(input,going);
+
 //        cout<<s->get_Id()<<endl;
 //        cout<<input<<endl;
 //
 //        cout<<going->get_Id()<<endl;
-//
-//            }
-//
-//        }
-//
-//
-//  allNewStates.pb(s);
-//
-//      }
+
+            }
+
+        }
+
+
+  allNewStates.pb(s);
+
+      }
 
 
 
    // send allnewStates
 
+  drawTable(allNewStates,inputSet);
 
 
+//
+//
+//
 
 
 //   REP(i,SZ(allNewStates)){
 //
 // State* s=allNewStates[i];
-//   cout<<s->get_Id()<<"and connected to"<<endl;
+//   cout<<s->get_Id()<<" and connected to"<<endl;
 //    set<string>::iterator iter;
 //
-//     cout<<SZ(inputSet)<<endl;
+//  //   cout<<SZ(inputSet)<<endl;
 //
 //   for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
 //        {
@@ -282,6 +374,8 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
 //            cout<<vv[0]->get_Id()<<" ";
 //
 //        }
+//
+//        cout<<endl;
 //   }
 
   return;
@@ -471,7 +565,9 @@ vector <vector <State*> > working_set2;
 
 DfaMinimizer::DfaMinimizer(vector <State*> allStates,set<string> inputSet)
 {
-    minimize(allStates,inputSet);
+
+ //   minimize(allStates,inputSet);
+    drawTable(allStates , inputSet);
 }
 
 
