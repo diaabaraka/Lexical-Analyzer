@@ -169,7 +169,7 @@ while (i < word.size()) {
 
 	  }
 	  else{
-        cout<<"error8"<<endl;
+        cout<<"error"<<endl;
 	  }
 
 	}else if (isPunctuation(yy) )
@@ -216,7 +216,7 @@ while (i < word.size()) {
 
 	  }
 	  else{
-        cout<<"error 5"<<endl;
+        cout<<"error"<<endl;
 	  }
 
 	         cout << my_character << " does not exist in the scope of the language " << endl ;
