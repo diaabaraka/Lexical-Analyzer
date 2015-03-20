@@ -335,7 +335,7 @@
 
 1426622971 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\main.cpp
 
-1426731591 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\nfa.cpp
+1426860155 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\nfa.cpp
 	"NFA.h"
 
 1426717903 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\state.cpp
@@ -348,7 +348,7 @@
 
 1426714772 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\waleed test main.cpp
 
-1426785556 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\tranzation.cpp
+1426861345 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\tranzation.cpp
 	<iostream>
 	<fstream>
 	<set>

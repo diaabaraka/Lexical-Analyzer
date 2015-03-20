@@ -1,8 +1,5 @@
-		if (x.equals("")){
-			JOptionPane.showMessageDialog(null, "Invalid Operation !");
-			first = 0;
-			second = 0;
-
-			return;
-
-		}
+!int sum , count , pass , mnt;
+while (pass != 10)
+{
+pass = pass + 1 ;
+}

@@ -423,7 +423,7 @@ pair<State* , State*> NFA:: cloneGraph(State* start){
 
 void NFA:: BFS(State* start){
 
-     if(exprName.compare("relop")==0){
+//     if(exprName.compare("relop")==0){
 //           set<int> found;
 //
 //    queue<State*> q;
@@ -462,7 +462,7 @@ void NFA:: BFS(State* start){
 //    }
 //
 //    cout<<"jjjjjjjjjjjj\n";
-     }
+//     }
 
 
 

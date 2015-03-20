@@ -152,7 +152,6 @@ while (i < word.size()) {
 	if (my_character=='\n')
 	{
 
-
 	  if (finalState !="" && token !="")
 	  {
 	    if(isKeyWords(token))
@@ -168,6 +167,9 @@ while (i < word.size()) {
 	    state =startState ;
 
 
+	  }
+	  else{
+        cout<<"error8"<<endl;
 	  }
 
 	}else if (isPunctuation(yy) )
@@ -213,8 +215,11 @@ while (i < word.size()) {
 
 
 	  }
+	  else{
+        cout<<"error 5"<<endl;
+	  }
 
-	         cout << my_character << " is not exist in the scope of the language " << endl ;
+	         cout << my_character << " does not exist in the scope of the language " << endl ;
 
 	         string seend= word.substr(i+1,word.length()-(i+1));
                // cout << "seeend when error   " << seend << endl;
@@ -248,10 +253,15 @@ while (i < word.size()) {
             }
             if(state->isAccepting()==false)
             {
+                // what if there is no previous AC
+                if(finalState == ""){
+                    cout<< "error" << endl;
+                }
+                else
                cout << finalState << endl ;
 
 
-               string send = word.substr(lastAccpeting.length(),word.length()-lastAccpeting.length());
+               string send = word.substr(i,word.length()-i);
 
                parse(send);
                return ;
@@ -357,6 +367,10 @@ while (i < word.size()) {
 	    }
 
 
+	  }
+
+	  else{
+       // cout<<"error"<<endl;
 	  }
 return ;
 
