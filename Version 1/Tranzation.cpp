@@ -10,7 +10,9 @@
 #include <set>
 #include <algorithm>
 #include <list>
+#include <sstream>
 
+#define SZ(V) (int)V.size()
 
 using namespace std;
 
@@ -62,28 +64,74 @@ bool Tranzation :: isPunctuation(string s)
 }
 
 
+void Tranzation:: read(){
+
+  string line;
+  ifstream myfile ("testProgram.txt");
+
+  if (myfile.is_open())
+  {
+    while ( getline (myfile,line) )
+    {
+        //split
+          vector<string> words = splitSpace(line);
+         // cout<<"out od s\n";
+          for(int i = 0 ; i < SZ(words) ; i++){
 
 
-void Tranzation:: parse()
-{
+            parse(words[i]);
 
-cout<<"int table\n";
+
+          }
+
+
+    }
+    myfile.close();
+  }
+
+
+return ;
+
+
+}
+
+vector<string> Tranzation:: splitSpace(string line ){
+
+
+    string buf;
+    stringstream ss(line);
+
+    vector<string> tokens;
+
+    while (ss >> buf)
+        tokens.push_back(buf);
+
+
+ return tokens;
+}
+
+
+
+
+
+
+void Tranzation::parse(string word){
+
+
 
 //State* startState = NULL;
 
 State* startState = dfaTable [0];
 
-cout<<"int table\n";
+
 
 
 
 State* state =startState ;
 
+string lastAccpeting ;
 
 
-fstream fin ;
-
-fin.open("testProgram.txt", ios::in);
 
 char my_character ;
 
@@ -93,16 +141,15 @@ string finalState ;
 
 vector<State*>nextStates;
 
+int i = 0;
+while (i < word.size()) {
 
-while (!fin.eof() ) {
 
-	fin.get(my_character);
-	if( fin.eof() )
-        break;
+	my_character = word[i];
     string yy = "";
     yy.push_back(my_character);
     //cout<<my_character<<" in the loop"<<endl;
-	if (my_character == ' '||my_character=='\n')
+	if (my_character=='\n')
 	{
 
 
@@ -169,13 +216,16 @@ while (!fin.eof() ) {
 
 	         cout << my_character << " is not exist in the scope of the language " << endl ;
 
+	         string seend= word.substr(i+1,word.length()-(i+1));
+               // cout << "seeend when error   " << seend << endl;
+                parse(seend);
+
+                return ;
+
+
+
        return  ;
     }
-
-
-
-
-
 
 
 
@@ -183,15 +233,34 @@ while (!fin.eof() ) {
 
 
 
-
-
-
-
 	if(nextStates.size()==0)
 	{
 
+	        if(state->get_Id()==startState->get_Id())
+            {
+                cout<<"error "<< endl;
 
-     	   if (finalState!=""&&token!="")
+                string seend= word.substr(i+1,word.length()-(i+1));
+               // cout << "seeend when error   " << seend << endl;
+                parse(seend);
+
+                return ;
+            }
+            if(state->isAccepting()==false)
+            {
+               cout << finalState << endl ;
+
+
+               string send = word.substr(lastAccpeting.length(),word.length()-lastAccpeting.length());
+
+               parse(send);
+               return ;
+
+
+
+            }
+     // here no transiation from acceptingState
+        if (finalState!=""&&token!="")
 	   {
 	      if(isKeyWords(token))
 	      {
@@ -208,15 +277,25 @@ while (!fin.eof() ) {
 	      token=yy;
 
 	     startState ->getTrasitions(yy,nextStates );
+
 	     if(nextStates.empty()){
-           cout<<"error " << endl ;
-           return ;
+           cout<<"error " <<   endl ;
+
+           string seend= word.substr(i+1,word.length()-(i+1));
+            //cout << "seeend when error 2  " << seend << endl;
+                parse(seend);
+
+                return ;
+
 	     }
+
 	     state = nextStates[0];
 
 	     if(state->isAccepting())
          {
             finalState=state->getType();
+
+            lastAccpeting=token ;
 
          }
 
@@ -238,13 +317,14 @@ while (!fin.eof() ) {
 	    {
 
 	      finalState = state ->getType() ;
+           lastAccpeting=token ;
 
 	    }
 
      }
 
    }
-
+    i++;
 }
 
 
@@ -259,14 +339,38 @@ while (!fin.eof() ) {
 
 	    }else
 	    {
+	        if(state->isAccepting()==false)
+            {
+               cout << finalState << endl ;
+
+
+               string send = word.substr(lastAccpeting.length(),word.length()-lastAccpeting.length());
+              // cout << "lAstAcceptin "<<lastAccpeting<<endl;
+              // cout << "seeeend "<< send <<  endl ;
+               parse(send);
+               return ;
+
+
+
+            }
 	      cout << finalState<<endl ;
 	    }
 
 
 	  }
+return ;
+
 
 
 }
+
+
+
+//void Tranzation:: parse()
+//{
+//
+//
+//}
 
 
 

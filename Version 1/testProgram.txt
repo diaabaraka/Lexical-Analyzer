@@ -1,1 +1,8 @@
-int x =10.8.;
+		if (x.equals("")){
+			JOptionPane.showMessageDialog(null, "Invalid Operation !");
+			first = 0;
+			second = 0;
+
+			return;
+
+		}

@@ -34,19 +34,19 @@ int main()
 //            cout<<*iter<<endl;
 //
 //        }
-    cout<<"parse finsh \n";
+//    cout<<"parse finsh \n";
     set<string>input = x->getInputSet();
 	DFA* dfa=new DFA(start,&input);
   	dfa->convertToDFA();
   	vector<State*>dfaTable=dfa->getDfaTable();
    // x->BFS(dfaTable[0]);
-    cout<<"DFA finish\n";
+//    cout<<"DFA finish\n";
        set<string>keyWards= x->keyWords;
    set<string>punc = x->punctuation;
 
  Tranzation* tranzation = new Tranzation (input , dfaTable,keyWards,punc );
 
-   tranzation->parse();
+   tranzation->read();
 
     return 0;
 }

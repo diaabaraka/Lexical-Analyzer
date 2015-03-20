@@ -17,7 +17,8 @@ class Tranzation
     public:
         Tranzation(set <string> input , vector <State*>states ,  set<string>keys ,set <string>pun );
         virtual ~Tranzation();
-
+        void read();
+        vector<string> splitSpace(string line );
      set<string>inputScope ;
 
      vector<State*>dfaTable;
@@ -33,7 +34,7 @@ class Tranzation
      bool  isPunctuation(string s);
 
 
-     void  parse();
+     void  parse(string word);
 
     protected:
 
