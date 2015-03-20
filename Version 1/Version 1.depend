@@ -96,7 +96,7 @@
 
 1426631900 source:c:\users\wido\documents\lexical-analyzer\version 1\main.cpp
 
-1426714497 source:c:\users\wido\documents\lexical-analyzer\version 1\nfa.cpp
+1426878807 source:c:\users\wido\documents\lexical-analyzer\version 1\nfa.cpp
 	"NFA.h"
 
 1426617247 c:\users\wido\documents\lexical-analyzer\version 1\nfa.h
@@ -109,7 +109,7 @@
 	<string.h>
 	<stack>
 
-1426631900 source:c:\users\wido\documents\lexical-analyzer\version 1\state.cpp
+1426878796 source:c:\users\wido\documents\lexical-analyzer\version 1\state.cpp
 	"State.h"
 	<map>
 	<set>
@@ -117,7 +117,7 @@
 
 1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\transitiontable.cpp
 
-1426677096 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
+1426879979 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
 	"DfaMinimizer.h"
 	"DFA.h"
 	"State.h"
@@ -137,7 +137,7 @@
 	<set>
 	<string>
 
-1426631986 c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.h
+1426875152 c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.h
 	"DFA.h"
 	"State.h"
 	<map>
@@ -192,20 +192,15 @@
 	<fstream>
 	"DFA.h"
 
-1426714516 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
-	<iostream>
-	"NFA.h"
-	<fstream>
-	"DFA.h"
-	"Tranzation.h"
+1426878956 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
 
-1426677080 source:c:\users\wido\documents\lexical-analyzer\version 1\waleed test main.cpp
+1426879148 source:c:\users\wido\documents\lexical-analyzer\version 1\waleed test main.cpp
 	<iostream>
 	<map>
 	"State.h"
 	"DfaMinimizer.h"
 
-1426714557 c:\users\wido\documents\lexical-analyzer\version 1\tranzation.h
+1426878807 c:\users\wido\documents\lexical-analyzer\version 1\tranzation.h
 	"string.h"
 	<map>
 	<set>
@@ -218,7 +213,7 @@
 
 1426631899 c:\users\wido\documents\lexical-analyzer\version 1\controller.h
 
-1426714614 source:c:\users\wido\documents\lexical-analyzer\version 1\tranzation.cpp
+1426878807 source:c:\users\wido\documents\lexical-analyzer\version 1\tranzation.cpp
 	<iostream>
 	<fstream>
 	<set>
@@ -231,6 +226,7 @@
 	<set>
 	<algorithm>
 	<list>
+	<sstream>
 
 1426779363 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\controller.cpp
 	<iostream>
