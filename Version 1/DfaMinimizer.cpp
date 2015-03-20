@@ -84,7 +84,7 @@ string DfaMinimizer::hashingFunction( vector <int> GoingToStatesVector)
 
 
 
- void DfaMinimizer::minimize(vector <State*> allStates){
+ void DfaMinimizer::minimize(vector <State*> allStates,set <string> inputSet){
 
  vector <vector <State*> > working_set;
 
@@ -122,9 +122,9 @@ REP(i,SZ(vds)){
 
 
 
-   CreateTheTwoDArray(working_set,SZ(allStates));
+   CreateTheTwoDArray(working_set,SZ(allStates),inputSet,allStates);
 
-
+return;
 
 }
 
@@ -145,32 +145,148 @@ for (it = hmap.begin(); it != hmap.end(); it++)
  return working_set;
 }
 
-void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set){
+State* DfaMinimizer::getState(int goingtoID,vector <State*>allStates){
+
+ REP(i,SZ(allStates)){
+
+ if(allStates[i]->get_Id()==goingtoID){
+    return allStates[i];
+ }
+
+ }
+
+ return NULL;
+
+}
+
+
+void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,set <string> inputSet,vector<State*> allStates){
 
 
 
   REP(i,SZ(working_set)){
-
     vector<State*> temp = working_set[i];
     finalTable.pb(temp);
   }
 
 
    REP(i,SZ(finalTable)){
-
       vector<State*> temp = finalTable[i];
-
    REP(j,SZ(temp)){
-
        cout<<temp[j]->get_Id()<<" "<<endl;
+   }
+   cout<<endl;
+  }
+ cout<<endl;
+
+  int * mappingArr=setTheMappingArr(finalTable,n);
+
+  vector <State*> allNewStates;
+
+  vector <State*> allStatesNew;
+
+   cout<<SZ(finalTable)<<endl;
+
+
+   REP(i,SZ(finalTable)){   // 3'laaaaat
+
+     // State *s=new State(i);
+
+    State* s=new State(3);
+
+    //   allStatesNew.pb(s);
 
    }
 
-   cout<<endl;
 
-  }
+
+
+//   REP(i,SZ(finalTable)){
+//
+//     State* s=getState(i,allStatesNew);
+//
+//      vector<State*> v=finalTable[i];
+//      State* old=v[0];
+//
+//
+//      if(old->isAccepting()){
+//        s->setAccepting();
+//      }
+//
+//        vector <State*> tempGoingToVector;
+//     vector <int> GoingToStatesVector;
+//         GoingToStatesVector.clear();
+//
+//       set<string>::iterator iter;
+//
+//
+//     for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+//        {
+//
+//        string input=*iter;
+//          tempGoingToVector.clear();
+//
+//     old->getTrasitions(input, tempGoingToVector);
+//
+//      cout<<tempGoingToVector[0]->get_Id()<<endl;
+//
+//            if(SZ(tempGoingToVector)>0){
+//
+//     State* goingToState=tempGoingToVector[0];
+//
+//
+//        int goingtoID=mappingArr[goingToState->get_Id()];
+//
+//           cout<<goingtoID<<endl;
+//
+//           State* going=getState(goingtoID,allStatesNew); // allStates newwwwwwwww
+//
+//          s->addTransition(input,going);
+//
+//        cout<<s->get_Id()<<endl;
+//        cout<<input<<endl;
+//
+//        cout<<going->get_Id()<<endl;
+//
+//            }
+//
+//        }
+//
+//
+//  allNewStates.pb(s);
+//
+//      }
+
+
+
+   // send allnewStates
+
+
+
+
+
+//   REP(i,SZ(allNewStates)){
+//
+// State* s=allNewStates[i];
+//   cout<<s->get_Id()<<"and connected to"<<endl;
+//    set<string>::iterator iter;
+//
+//     cout<<SZ(inputSet)<<endl;
+//
+//   for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+//        {
+//        string input=*iter;
+//               vector<State*>vv;
+//           s->getTrasitions(input,vv);
+//            if(SZ(vv)>0)
+//            cout<<vv[0]->get_Id()<<" ";
+//
+//        }
+//   }
 
   return;
+
+
 
 }
 
@@ -200,7 +316,7 @@ return true;
 
 
 
-  void DfaMinimizer::CreateTheTwoDArray(vector <vector <State*> > working_set,int n){
+  void DfaMinimizer::CreateTheTwoDArray(vector <vector <State*> > working_set,int n,set <string> inputSet,vector<State*>allStates){
 
 
    while(1){
@@ -249,9 +365,7 @@ string str = ss.str();
 
     set<string>::iterator iter;
 
-         set<string>inputSet;            ////////////// waiting for consturctor
-         inputSet.insert("a");
-         inputSet.insert("b");
+
 
         for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
         {
@@ -337,8 +451,9 @@ vector <vector <State*> > working_set2;
 
  if( equals(working_set,working_set2) ){
 
-    sendToNextStage(working_set);
-   break;
+    sendToNextStage(working_set,n,inputSet,allStates);
+
+  return;
 
  }
 
@@ -348,14 +463,15 @@ vector <vector <State*> > working_set2;
 
    }
 
+ return;
 
   }
 
 
 
-DfaMinimizer::DfaMinimizer(vector <State*> allStates)
+DfaMinimizer::DfaMinimizer(vector <State*> allStates,set<string> inputSet)
 {
-    minimize(allStates);
+    minimize(allStates,inputSet);
 }
 
 
