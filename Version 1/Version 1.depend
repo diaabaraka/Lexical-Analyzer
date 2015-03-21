@@ -228,7 +228,7 @@
 	<list>
 	<sstream>
 
-1426885825 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\controller.cpp
+1426897163 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\controller.cpp
 	<iostream>
 	"NFA.h"
 	<fstream>
@@ -295,7 +295,7 @@
 	<set>
 	<string>
 
-1426887323 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\dfaminimizer.cpp
+1426894910 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\dfaminimizer.cpp
 	"DfaMinimizer.h"
 	"DFA.h"
 	"State.h"
@@ -316,7 +316,7 @@
 	<set>
 	<string>
 
-1426885415 c:\users\mostfa\documents\github\lexical-analyzer\version 1\dfaminimizer.h
+1426890508 c:\users\mostfa\documents\github\lexical-analyzer\version 1\dfaminimizer.h
 	"DFA.h"
 	"State.h"
 	<map>
@@ -333,7 +333,7 @@
 
 1426622971 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\main.cpp
 
-1426886089 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\nfa.cpp
+1426900404 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\nfa.cpp
 	"NFA.h"
 	<fstream>
 
@@ -347,7 +347,7 @@
 
 1426882959 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\waleed test main.cpp
 
-1426887483 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\tranzation.cpp
+1426899087 source:c:\users\mostfa\documents\github\lexical-analyzer\version 1\tranzation.cpp
 	<iostream>
 	<fstream>
 	<set>

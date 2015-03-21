@@ -262,8 +262,9 @@ while (i < word.size()) {
             {
                 cout<<"error "<< endl;
 
+
+
                 string seend= word.substr(i+1,word.length()-(i+1));
-               // cout << "seeend when error   " << seend << endl;
                 parse(seend);
 
                 return ;
@@ -282,8 +283,11 @@ while (i < word.size()) {
 	                  symbolTable.insert(token);
                    }
 
+               string send = "";
 
-               string send = word.substr(i,word.length()-i);
+                   send = word.substr(i,word.length()-i);
+
+
 
                parse(send);
                return ;
@@ -319,8 +323,7 @@ while (i < word.size()) {
 	     if(nextStates.empty()){
            cout<<"error " <<   endl ;
 
-           string seend= word.substr(i+1,word.length()-(i+1));
-            //cout << "seeend when error 2  " << seend << endl;
+           string seend= word.substr(lastAccpeting.length(),word.length()-lastAccpeting.length());
                 parse(seend);
 
                 return ;
@@ -367,7 +370,6 @@ while (i < word.size()) {
 
 
 
-
 	  if (finalState !="" && token !="")
 	  {
 
@@ -388,8 +390,7 @@ while (i < word.size()) {
 
 
                string send = word.substr(lastAccpeting.length(),word.length()-lastAccpeting.length());
-              // cout << "lAstAcceptin "<<lastAccpeting<<endl;
-              // cout << "seeeend "<< send <<  endl ;
+
                parse(send);
                return ;
 

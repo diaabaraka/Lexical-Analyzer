@@ -20,6 +20,7 @@ class DfaMinimizer
 {
     public:
           void  drawTable(vector <State*> allNewStates, set <string> inputSet);
+       vector <State*> getzzzzzzz() ;
 
         DfaMinimizer(vector <State*> allStates,set <string>inputSet);
 

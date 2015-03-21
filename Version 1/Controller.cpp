@@ -4,6 +4,11 @@
 #include"DFA.h"
 #include "Tranzation.h"
 #include "DfaMinimizer.h"
+
+#define SZ(V) (int)V.size()
+
+
+
 using namespace std;
 
 int main()
@@ -25,16 +30,7 @@ int main()
   }
 
     State* start = x->compine();
-//            set<string>input_2 = x->getInputSet();
-//
-//        set<string, State*>::iterator iter;
-//
-//        for (iter = input_2.begin(); iter != input_2.end(); ++iter) {
-//
-//            cout<<*iter<<endl;
-//
-//        }
-//    cout<<"parse finsh \n";
+
     set<string>input = x->getInputSet();
 	DFA* dfa=new DFA(start,&input);
   	dfa->convertToDFA();
@@ -43,12 +39,32 @@ int main()
     x->BFS(dfaTable[0]);
  DfaMinimizer* dm=new DfaMinimizer(dfaTable,input);
 
+  vector <State*> vvvv=dm->getzzzzzzz();
+
+    State* ss;
+    int i=0;
+     for(i;i<SZ(vvvv);i++){
+      if(vvvv[i]->get_Id()==1){
+        ss=vvvv[i];
+      }
+     }
+
+     vvvv.erase (vvvv.begin()+1);
+
+     vector <State*> finnnnn;
+     finnnnn.push_back(ss);
+   i=0;
+  for(i;i<SZ(vvvv);i++){
+    finnnnn.push_back(vvvv[i]);
+  }
+
+
    // x->BFS(dfaTable[0]);
 //    cout<<"DFA finish\n";
        set<string>keyWards= x->keyWords;
    set<string>punc = x->punctuation;
 
- Tranzation* tranzation = new Tranzation (input , dfaTable,keyWards,punc );
+ Tranzation* tranzation = new Tranzation (input , finnnnn ,keyWards,punc );
 
    tranzation->read();
 

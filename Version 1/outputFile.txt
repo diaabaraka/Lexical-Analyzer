@@ -1,7 +1,4 @@
 The Identifers
 _______________
 
-count
-mnt
-pass
-sum
+A

@@ -33,7 +33,6 @@ string NFA :: parse(string expression){
                             keyWords.insert(expression_0);
                         }
                         else {
-                               // cout<<expression_0<<endl;
 
                                 punctuation.insert(expression_0);
                         }
@@ -88,7 +87,6 @@ string NFA :: parse(string expression){
 
             }
             else{
-               // cout<<expression[i]<<endl;
                 expression_0.push_back(expression[i]);
             }
 
@@ -96,16 +94,12 @@ string NFA :: parse(string expression){
         }
 
 
-       // State start(counter++);
-        // we will transforme the expression to postfix expression
-       // cout<<"jgkkgldsjkkkkkkkkkkkk "<<expression_0<<endl;
         expression_0 = postfix(expression_0);
         // now we have the postfix expression we want to parse it
 
 
 
         Eval(expression_0);
-       // cout<<"whfdds"<<endl;
         return expression_0 ;
 
 
@@ -113,20 +107,15 @@ string NFA :: parse(string expression){
 
 State* NFA:: Eval(string postFix){
 
-//    if(exprName.compare("relop") == 0){
-//        cout<<"relop "<<postFix<<endl;
-//    }
 
     string operand = "";
     bool dash = false;
     string eps = "-1";
     stack< pair<State* , State*> > states;
     counter = 0;
-   // cout<< "EVAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"<< postFix<<endl;
     for(int i = 0 ; i < postFix.size() ; i++){
 
         if(postFix[i] == ' '){
-          //  cout<<operand<<"hhhhhhhhhh\n";
             if(operand.compare("") != 0){
                 // Not an empty operand then we shouldn't ignore
 
@@ -137,7 +126,6 @@ State* NFA:: Eval(string postFix){
                     State* start = regular_definition[operand];
 
                     pair<State* , State*> p = cloneGraph(start);
-                    //  cout<<"inside cloneeeeeeeeeeeeeeeeeeeeee"<<endl;
 
                     states.push(p);
 
@@ -153,7 +141,6 @@ State* NFA:: Eval(string postFix){
                     if(dash){
                         dash = false;
                         char first = 'f' , sec = 'f';
-                       // cout<< operand<<endl;
                         for(int j = 0 ; j < operand.size() ; j++){
                             if(operand[j] == '-'){
                                 dash = true;
@@ -253,7 +240,6 @@ State* NFA:: Eval(string postFix){
                 pair<State* , State*> first = states.top();
                 states.pop();
 
-                //first.first->addTransition(eps ,first.second);
                 first.second->addTransition(eps ,first.first);
                 states.push(first);
 
@@ -295,7 +281,6 @@ State* NFA:: Eval(string postFix){
                 states.pop();
                 second.second->addTransition(eps ,first.first);
                 states.push(make_pair(second.first , first.second));
-      //          cout<<"found thus"<<endl;
 
             }
 
@@ -310,13 +295,11 @@ State* NFA:: Eval(string postFix){
 
         }
         else {
-           // cout<<postFix[i]<<" "<<special.front()<<endl;
             if(postFix[i] == '-'){
                 dash = true;
             }
             if(postFix[i] == '`' && special.front() != 'L'){
 
-                   // cout<<"here must be equal"<<special.front()<<endl;
 
                 operand.push_back(special.front());
                 special.pop();
@@ -335,32 +318,26 @@ State* NFA:: Eval(string postFix){
     states.pop();
 
     st.second->setAccepting();
- //   cout<<exprName<<" Name"<<endl;
     BFS(st.first);
     if(regularDefinition){
         regular_definition[exprName] = st.first;
     }
     else{
         st.second->set_Type(exprName);
-       // cout<<exprName<<endl;
         regular_expression[exprName] = st.first;
     }
-  //  cout<<"why"<<endl;
     return st.first;
 
 }
 
 pair<State* , State*> NFA:: cloneGraph(State* start){
 
- //   cout<<"cloneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\n";
     State* newState = new State(counter++);
     int endStateID = -1;
     set<int> found;
     map<int , State*> created;
     queue<State*> q;
-//    queue<State*> q_1;
     q.push(start);
- //   q_1.push(newState);
 
     created[start->get_Id()] = newState;
 
@@ -375,7 +352,6 @@ pair<State* , State*> NFA:: cloneGraph(State* start){
         found.insert(tmp->get_Id());
 
         State* newTmp = created[tmp->get_Id()];
- //       q_1.pop();
 
         if(tmp->isAccepting()){
             endStateID = tmp->get_Id();
@@ -423,7 +399,6 @@ pair<State* , State*> NFA:: cloneGraph(State* start){
 
 void NFA:: BFS(State* start){
 
-//     if(exprName.compare("relop")==0){
            set<int> found;
  ofstream myfile;
   myfile.open ("Drawing2.txt");
@@ -462,9 +437,7 @@ void NFA:: BFS(State* start){
 
 
     }
-//
-//    cout<<"jjjjjjjjjjjj\n";
-//     }
+
 
 
 
@@ -481,7 +454,6 @@ string NFA:: postfix(string expression){
 
 
     expression = addConcatenation(expression);
- //   cout<< expression<<endl;
     string operand ="";
     string result = "";
 
@@ -491,15 +463,12 @@ string NFA:: postfix(string expression){
 
         if(expression[i] == '|' ||expression[i] == '*' || expression[i] == '+'
            || expression[i] == '(' || expression[i] == ')' || expression[i] == '$'){
-  //          cout<< operand<<endl;
 
             result.append(operand+" ");
-  //          cout << result << endl;
             operand = "";
 
 
             if(expression[i] == ')'){
-  //              cout<< expression[i]<<endl;
                 while(true){
 
                     if(operations.top() == '('){
@@ -531,15 +500,11 @@ string NFA:: postfix(string expression){
             }
 
 
-             //cout<< operations.top()<<endl;
 
 
         }
 
-//        else if(expression[i] == '\\'){
-//
-//
-//        }
+
         else if(expression[i] == ' '){
             continue;
         }
@@ -574,7 +539,6 @@ string NFA:: postfix(string expression){
 
 string NFA:: AddEscape(string expr){
 
-//    cout<<expr<<endl;
 
     while(!special.empty()){
         special.pop();
@@ -583,7 +547,6 @@ string NFA:: AddEscape(string expr){
     string result = "";
     bool slash = false;
     for(int i = 0 ; i < expr.size() ; i++){
-  //      cout<<expr[i]<<endl;
         if(expr[i] == '\\'){
             // found escape char so
             slash = true;
@@ -601,12 +564,10 @@ string NFA:: AddEscape(string expr){
         }
         else if(expr[i] == ' '){
                 result.push_back(' ');
-           // continue;
         }
         else if(slash){
             // here we found an operator so we need to replace it with specia char
             special.push(expr[i]);
-           // cout<<expr[i]<<endl;
             result.push_back('`');
             slash = false;
         }
@@ -619,14 +580,6 @@ string NFA:: AddEscape(string expr){
 
     }
 
-//    if(exprName.compare("relop") == 0){
-//            cout<<"here "<<special.size()<<endl;
-//            while(!special.empty()){
-//                cout<<special.front()<<endl;
-//                special.pop();
-//            }
-//    }
-//
 
 
 
@@ -642,7 +595,6 @@ string NFA:: addConcatenation(string expr){
         string result = "";
 
         expr = AddEscape(expr);
-       // cout<<"After Escap : " << expr<<endl;
         for(int i = 0 ; i < expr.size() ; i++){
 
             if(isOperator(expr[i]) || isChar(expr[i]) || expr[i] == '-'){
@@ -734,7 +686,6 @@ string NFA:: addConcatenation(string expr){
         }
 
 
-     //   cout<<"here : "<< result<<endl;
         return result;
 
 
