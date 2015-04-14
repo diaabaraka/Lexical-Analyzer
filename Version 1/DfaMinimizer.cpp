@@ -40,10 +40,11 @@
 
 vector <vector <State*> > finalTable;
 
-vector <State*> ssssssss;
+vector <State*> finalMinimizedStates;
 
-vector <State*> DfaMinimizer::getzzzzzzz() {
- return ssssssss;
+
+vector <State*> DfaMinimizer::getFinalMinimzedStates() {
+ return finalMinimizedStates;
 }
 
 
@@ -152,26 +153,6 @@ v.pb(s);
 
 }
 
-
-
-
-//***********************
-
-
-
- //vector<State*> vds=working_set[1];
-
- // cout<<SZ(vds)<<endl;
-/*
-REP(i,SZ(vds)){
- cout<<vds[i]->get_Id()<<" " <<endl;
-}
-*/
-
-  //  int * mappingArr=setTheMappingArr(working_set,SZ(allStates));
-
-
-
    CreateTheTwoDArray(last,SZ(allStates),inputSet,allStates);
 
 return;
@@ -213,17 +194,18 @@ State* DfaMinimizer::getState(int goingtoID,vector <State*>allStates){
   void DfaMinimizer::  drawTable(vector <State*> allNewStates, set <string> inputSet){
 
 
-  ssssssss=allNewStates;
+  finalMinimizedStates=allNewStates;
 
     ofstream myfile;
   myfile.open ("Drawing.txt");
 
-    myfile << "Writing this to a file.\n";
+  //  myfile << "Writing this to a file.\n";
+  myfile<<endl;
 
     map<string , int> ID;
     set<string>::iterator iter;
 
-   myfile<<"          ";
+   myfile<<"     ";
    int x = 0;
 
      for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
@@ -281,14 +263,14 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
   }
 
 
-   REP(i,SZ(finalTable)){
-      vector<State*> temp = finalTable[i];
-   REP(j,SZ(temp)){
-       cout<<temp[j]->get_Id()<<" "<<endl;
-   }
-   cout<<endl;
-  }
- cout<<endl;
+//   REP(i,SZ(finalTable)){
+//      vector<State*> temp = finalTable[i];
+//   REP(j,SZ(temp)){
+//       cout<<temp[j]->get_Id()<<" "<<endl;
+//   }
+//   cout<<endl;
+//  }
+// cout<<endl;
 
    int * mappingArr=setTheMappingArr(finalTable,n);
 
@@ -296,33 +278,23 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
      set<string>::iterator iter;
 
 
-     for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
-        {
-        string input=*iter;
-        cout<<input<<" ";
-          }
+//     for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
+//        {
+//        string input=*iter;
+//        cout<<input<<" ";
+//          }
 
-
-
-
-
-
-//
-//  int * mappingArr=setTheMappingArr(finalTable,n);
 
   vector <State*> allNewStates;
 
   vector <State*> allStatesNew;
 
-   cout<<SZ(finalTable)<<"aho"<<endl;
-
+  // cout<<SZ(finalTable)<<"aho"<<endl;
 //
-//
-   REP(i,SZ(finalTable)){   // 3'laaaaat
+   REP(i,SZ(finalTable)){
 
       State *s=new State(i);
 
-   // State* s=new State(3);
 
       allStatesNew.pb(s);
    }
@@ -335,15 +307,12 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
 
      State* s=getState(i,allStatesNew);
 
-
-
-
       vector<State*> v=finalTable[i];
       State* old=v[0];
 
   bool f=false;
 
-    if(old->getType().compare("assign")==0){cout<<"leeeeeeeeeeeeeeeeeeeeeeeeeh"<<endl; f=true;}
+  //  if(old->getType().compare("assign")==0){cout<<"leeeeeeeeeeeeeeeeeeeeeeeeeh"<<endl; f=true;}
 
 
       if(old->isAccepting()){
@@ -369,7 +338,6 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
 
      old->getTrasitions(input, tempGoingToVector);
 
-    //  cout<<tempGoingToVector[0]->get_Id()<<endl;
 
             if(SZ(tempGoingToVector)>0){
 
@@ -378,16 +346,10 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
 
         int goingtoID=mappingArr[goingToState->get_Id()];
 
-      //     cout<<goingtoID<<endl;
 
           State* going=getState(goingtoID,allStatesNew); // allStates newwwwwwwww
 
           s->addTransition(input,going);
-
-//        cout<<s->get_Id()<<endl;
-//        cout<<input<<endl;
-//
-//        cout<<going->get_Id()<<endl;
 
 
             }
@@ -395,8 +357,8 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
         }
 
 
- if(f)
-   cout<<"new leeeeeeeeeeeeeeeeeeeeeeh   " <<s->get_Id()<<endl;
+  // if(f)
+ //  cout<<"new leeeeeeeeeeeeeeeeeeeeeeh   " <<s->get_Id()<<endl;
 
 
 
@@ -410,32 +372,6 @@ void  DfaMinimizer::sendToNextStage(vector <vector <State*> > working_set,int n,
 
   drawTable(allNewStates,inputSet);
 
-
-//
-//
-//
-
-
-//   REP(i,SZ(allNewStates)){
-//
-// State* s=allNewStates[i];
-//   cout<<s->get_Id()<<" and connected to"<<endl;
-//    set<string>::iterator iter;
-//
-//  //   cout<<SZ(inputSet)<<endl;
-//
-//   for (iter = inputSet.begin(); iter != inputSet.end(); ++iter)
-//        {
-//        string input=*iter;
-//               vector<State*>vv;
-//           s->getTrasitions(input,vv);
-//            if(SZ(vv)>0)
-//            cout<<vv[0]->get_Id()<<" ";
-//
-//        }
-//
-//        cout<<endl;
-//   }
 
   return;
 
@@ -493,12 +429,7 @@ string str = ss.str();
 
    constt.append(str);
 
- //  cout<<"bbbbbbbbbbbbbbbbb"<<endl;
-  // cout<<constt<<endl;
-
-
-
-    REP(j,SZ(working_vector)){     // hena 3la mostawa el magmo3a el wa7da
+     REP(j,SZ(working_vector)){     // hena 3la mostawa el magmo3a el wa7da
 
   //hmap.clear();
 
@@ -561,42 +492,12 @@ v.pb(s);
 }
 
 
-
-/*
-vector <vector <State*> > working_set2;
-
- working_set2=makeTheNewWorkSet(hmap);
-
-   working_set=working_set2;
-*/
-
-
     }
 
 
 
 
    }
-/*
-cout<<"firstttttt"<<endl;
-
-REP(i,SZ(working_set)){
-
-  REP(j,SZ(working_set[i])){
-
- vector <State*> m=working_set[i];
-
-  State* s= m[j];
-
-   cout<<s->get_Id()<<endl;
-
-  }
-  cout<<endl;
-
-  }
-
-*/
-
 
 
 vector <vector <State*> > working_set2;
@@ -628,8 +529,6 @@ DfaMinimizer::DfaMinimizer(vector <State*> allStates,set<string> inputSet)
 {
 
     minimize(allStates,inputSet);
-
-  //  drawTable(allStates , inputSet);
 
 
 }

@@ -39,7 +39,7 @@ int main()
     x->BFS(dfaTable[0]);
  DfaMinimizer* dm=new DfaMinimizer(dfaTable,input);
 
-  vector <State*> vvvv=dm->getzzzzzzz();
+  vector <State*> vvvv=dm->getFinalMinimzedStates();
 
     State* ss;
     int i=0;
