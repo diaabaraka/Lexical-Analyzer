@@ -4,7 +4,7 @@
 #include"DFA.h"
 #include "Tranzation.h"
 #include "DfaMinimizer.h"
-
+#include "ParsingTable.h"
 #define SZ(V) (int)V.size()
 
 
@@ -83,5 +83,13 @@ int main()
  // StartToParser.fillGrammerList();   //to fill the multimap
 
   /////////////////////////////////////////////////////////////////////
+
+
+
+ //  ParsingTable* pt=new ParsingTable(rules,first_map,follow_map,allNonTerminals);  // parsing table waleeeeed
+
+ //  pt.getFinalTable()  // from waleed to diaa 7awell from waleed to diaa 7awell hal tasm3ony ?
+
+
     return 0;
 }

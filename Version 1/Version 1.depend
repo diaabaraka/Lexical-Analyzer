@@ -118,7 +118,7 @@
 
 1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\transitiontable.cpp
 
-1426901985 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
+1429054349 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
 	"DfaMinimizer.h"
 	"DFA.h"
 	"State.h"
@@ -194,13 +194,14 @@
 	<fstream>
 	"DFA.h"
 
-1426901478 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
+1429120966 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
 	<iostream>
 	"NFA.h"
 	<fstream>
 	"DFA.h"
 	"Tranzation.h"
 	"DfaMinimizer.h"
+	"ParsingTable.h"
 
 1426887842 source:c:\users\wido\documents\lexical-analyzer\version 1\waleed test main.cpp
 
@@ -365,4 +366,63 @@
 	<algorithm>
 	<list>
 	<sstream>
+
+1429109009 source:c:\users\wido\documents\lexical-analyzer\version 1\starttoparser.cpp
+	"StartToParser.h"
+	"Controller.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1429109009 c:\users\wido\documents\lexical-analyzer\version 1\starttoparser.h
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1429120778 source:c:\users\wido\documents\lexical-analyzer\version 1\parsingtable.cpp
+	"ParsingTable.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+	<iostream>
+	<cstdio>
+	<map>
+	<set>
+
+1429120951 c:\users\wido\documents\lexical-analyzer\version 1\parsingtable.h
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
 
