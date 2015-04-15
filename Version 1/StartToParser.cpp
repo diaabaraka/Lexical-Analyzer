@@ -1,7 +1,7 @@
 #include "StartToParser.h"
-#include "Controller.h"
+//#include "Controller.h"
 #include <map>
-
+#include <iostream>
 #include <string>
 #include <stack>
 #include <map>
@@ -20,14 +20,16 @@ using namespace std;
 
 string startingSymbol = "METHOD_BODY" ;
 
-std::string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "-" };
-std::set<std::string> terminals(tmp, tmp + sizeof(tmp) / sizeof(tmp[0]));
+//std::string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "-" };
+//std::set<std::string> terminals(tmp, tmp + sizeof(tmp) / sizeof(tmp[0]));
 
 
 multimap <string, string> grammers ;
 
 void StartToParser::fillGrammerList()
 {
+		//cout<<terminals.size()<<"\n";
+
        grammers.insert(make_pair("METHOD_BODY","STATEMENT_LIST"));
 
        grammers.insert(make_pair("STATEMENT_LIST","STATEMENT STATEMENT_LIST_2" ));
@@ -44,11 +46,7 @@ void StartToParser::fillGrammerList()
 
        grammers.insert(make_pair("STATEMENT","ASSIGNMENT"));
 
-       grammers.insert(make_pair("DECLARATION","PRIMITIVE_TYPE"));
-
-       grammers.insert(make_pair("DECLARATION","id"));
-
-       grammers.insert(make_pair("DECLARATION",";"));
+       grammers.insert(make_pair("DECLARATION","PRIMITIVE_TYPE id ;"));
 
        grammers.insert(make_pair("PRIMITIVE_TYPE","int"));
 
@@ -116,6 +114,10 @@ void StartToParser::fillGrammerList()
 
 StartToParser::StartToParser()
 {
+	string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "-" };
+	for (int i = 0; i < sizeof(tmp) / sizeof(tmp[0]); ++i) {
+		terminals.insert(tmp[i]);
+	}
 
 }
 
