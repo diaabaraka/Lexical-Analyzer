@@ -68,5 +68,20 @@ int main()
 
    tranzation->read();
 
+   // object tranzation for diaa to use getNextToken() method
+
+
+
+  /////////////////////////////////////////////////////////////////////////
+
+ // StartToParser startToParser =new StartToParser();
+
+ // string startSymbol =startToParser.startingSymbol ;  // diaa needs it
+
+ // set<string>Terminals = StartToParser.terminals; // diaa , waleed  , mostafa and mahmoud need it
+
+ // StartToParser.fillGrammerList();   //to fill the multimap
+
+  /////////////////////////////////////////////////////////////////////
     return 0;
 }
