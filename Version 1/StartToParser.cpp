@@ -48,6 +48,10 @@ void StartToParser::fillGrammerList()
 
        grammers.insert(make_pair("DECLARATION","PRIMITIVE_TYPE id ;"));
 
+//       grammers.insert(make_pair("DECLARATION","id"));
+//
+//       grammers.insert(make_pair("DECLARATION",";"));
+
        grammers.insert(make_pair("PRIMITIVE_TYPE","int"));
 
        grammers.insert(make_pair("PRIMITIVE_TYPE","float"));
@@ -114,7 +118,7 @@ void StartToParser::fillGrammerList()
 
 StartToParser::StartToParser()
 {
-	string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "-" };
+	string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "-", "e" };
 	for (int i = 0; i < sizeof(tmp) / sizeof(tmp[0]); ++i) {
 		terminals.insert(tmp[i]);
 	}
