@@ -39,7 +39,7 @@ First::First() {
     		for (iter = res.begin(); iter != res.end(); ++iter) {
 
     			//cout << (*iter) << endl;
-
+    			if(!contains(st->first , (*iter)))
     			expression_First.insert(make_pair(st->first , (*iter)));
 
 
@@ -115,7 +115,10 @@ set<string>First:: getFirst(string name){
 				// found terminal word .. add it to the set and exit
 				//cout<<"here22\n";
 				result.insert(word);
-				expression_First.insert(make_pair(expr , word));
+				if(!contains(expr , word)){
+					expression_First.insert(make_pair(expr , word));
+
+				}
 				break;
 
 			}
@@ -127,7 +130,10 @@ set<string>First:: getFirst(string name){
 
 				for (iter = tmp_res.begin(); iter != tmp_res.end(); ++iter) {
 
-					expression_First.insert(make_pair(expr , (*iter)));
+					if(!contains(expr , (*iter))){
+						expression_First.insert(make_pair(expr , (*iter)));
+
+					}
 
 					result.insert(*iter);
 
@@ -155,6 +161,23 @@ set<string>First:: getFirst(string name){
 	return result;
 
 
+
+}
+
+
+bool First:: contains(string x , string y){
+
+
+	multimap<string , string>:: iterator iter;
+
+	for (iter = expression_First.lower_bound(x); iter != expression_First.upper_bound(x); ++iter) {
+
+		if (y.compare(iter->second) == 0) {
+			return true;
+		}
+	}
+
+	return false;
 
 }
 

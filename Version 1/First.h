@@ -18,6 +18,7 @@ public:
 	set<string> getFirst(string name);
 	vector<string> splitSpace(string line);
 	multimap<string , string> getAllFirst();
+	bool contains(string x , string y);
 	virtual ~First();
 
 
