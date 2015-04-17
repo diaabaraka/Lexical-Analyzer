@@ -5,6 +5,8 @@
 #include "Tranzation.h"
 #include "DfaMinimizer.h"
 #include "ParsingTable.h"
+#include "StartToParser.h"
+
 #define SZ(V) (int)V.size()
 
 
@@ -68,17 +70,20 @@ int main()
 
    tranzation->read();
 
+
+
    // object tranzation for diaa to use getNextToken() method
 
 
 
   /////////////////////////////////////////////////////////////////////////
 
- // StartToParser startToParser =new StartToParser();
+  StartToParser* startToParser =new StartToParser();
 
- // string startSymbol =startToParser.startingSymbol ;  // diaa needs it
+  string startSymbol =startToParser->startingSymbol ;  // diaa needs it
+vector<string>tokens=tranzation->tokensForParser;
 
- // set<string>Terminals = StartToParser.terminals; // diaa , waleed  , mostafa and mahmoud need it
+  set<string>Terminals = startToParser->terminals; // diaa , waleed  , mostafa and mahmoud need it
 
  // StartToParser.fillGrammerList();   //to fill the multimap
 
@@ -86,9 +91,10 @@ int main()
 
 
 
- //  ParsingTable* pt=new ParsingTable(rules,first_map,follow_map,allNonTerminals);  // parsing table waleeeeed
 
- //  pt.getFinalTable()  // from waleed to diaa 7awell from waleed to diaa 7awell hal tasm3ony ?
+//   ParsingTable* pt=new ParsingTable(rules,first_map,follow_map,allNonTerminals);  // parsing table waleeeeed
+
+//   map<string, map<string,string> > parsing_table=pt.getFinalTable()  // from waleed to diaa 7awell from waleed to diaa 7awell hal tasm3ony ?
 
 
     return 0;
