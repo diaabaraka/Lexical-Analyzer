@@ -426,3 +426,230 @@
 	<set>
 	<string>
 
+1429226416 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\controller.cpp
+	<iostream>
+	"NFA.h"
+	<fstream>
+	"DFA.h"
+	"Tranzation.h"
+	"DfaMinimizer.h"
+	"ParsingTable.h"
+
+1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\nfa.h
+	"State.h"
+	<iostream>
+	<string>
+	<map>
+	<set>
+	<queue>
+	<string.h>
+	<stack>
+
+1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\state.h
+	<map>
+	<vector>
+	<set>
+	<string>
+	<iostream>
+
+1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfa.h
+	<map>
+	<set>
+	<string>
+	"State.h"
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+
+1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\tranzation.h
+	"string.h"
+	<map>
+	<set>
+	"State.h"
+	"NFA.h"
+	"Controller.h"
+	"DFA.h"
+	"Tranzation.h"
+	<set>
+
+1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\controller.h
+
+1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfaminimizer.h
+	"DFA.h"
+	"State.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1429226416 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\parsingtable.h
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfa.cpp
+	"DFA.h"
+	"State.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfaminimizer.cpp
+	"DfaMinimizer.h"
+	"DFA.h"
+	"State.h"
+	<map>
+	<iostream>
+	<cmath>
+	<typeinfo>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<sstream>
+	<fstream>
+	<set>
+	<string>
+
+1429105847 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\main.cpp
+
+1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\nfa.cpp
+	"NFA.h"
+	<fstream>
+
+1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\state.cpp
+	"State.h"
+	<map>
+	<set>
+	<string>
+
+1429105847 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\transitiontable.cpp
+
+1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\tranzation.cpp
+	<iostream>
+	<fstream>
+	<set>
+	"Tranzation.h"
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<sstream>
+
+1429105847 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\waleed test main.cpp
+
+1429226416 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\first.cpp
+	"First.h"
+	<iostream>
+	<vector>
+	<algorithm>
+	<string>
+	<map>
+	<vector>
+	<set>
+	<sstream>
+	"StartToParser.h"
+
+1429226416 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\first.h
+	<map>
+	<string>
+	"StartToParser.h"
+
+1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\starttoparser.h
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1429289914 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\follow.cpp
+	"First.h"
+	"Follow.h"
+	<iostream>
+	<vector>
+	<algorithm>
+	<string>
+	<map>
+	<queue>
+	<vector>
+	<set>
+	<sstream>
+	"StartToParser.h"
+
+1429289421 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\follow.h
+
+1429226416 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\starttoparser.cpp
+	"StartToParser.h"
+	<map>
+	<iostream>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+
+1429226416 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\parsingtable.cpp
+	"ParsingTable.h"
+	<map>
+	<string>
+	<stack>
+	<map>
+	<deque>
+	<vector>
+	<set>
+	<algorithm>
+	<list>
+	<set>
+	<string>
+	<iostream>
+	<cstdio>
+	<map>
+	<set>
+
