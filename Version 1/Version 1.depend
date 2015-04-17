@@ -94,7 +94,7 @@
 	<string>
 	<iostream>
 
-1426631900 source:c:\users\wido\documents\lexical-analyzer\version 1\main.cpp
+1429306378 source:c:\users\wido\documents\lexical-analyzer\version 1\main.cpp
 
 1426900772 source:c:\users\wido\documents\lexical-analyzer\version 1\nfa.cpp
 	"NFA.h"
@@ -118,7 +118,7 @@
 
 1426385785 source:c:\users\wido\documents\lexical-analyzer\version 1\transitiontable.cpp
 
-1429054349 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
+1429293947 source:c:\users\wido\documents\lexical-analyzer\version 1\dfaminimizer.cpp
 	"DfaMinimizer.h"
 	"DFA.h"
 	"State.h"
@@ -194,18 +194,20 @@
 	<fstream>
 	"DFA.h"
 
-1429120966 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
+1429308201 source:c:\users\wido\documents\lexical-analyzer\version 1\controller.cpp
 	<iostream>
 	"NFA.h"
 	<fstream>
 	"DFA.h"
 	"Tranzation.h"
+	"Follow.h"
 	"DfaMinimizer.h"
 	"ParsingTable.h"
+	"StartToParser.h"
 
 1426887842 source:c:\users\wido\documents\lexical-analyzer\version 1\waleed test main.cpp
 
-1426878807 c:\users\wido\documents\lexical-analyzer\version 1\tranzation.h
+1429304283 c:\users\wido\documents\lexical-analyzer\version 1\tranzation.h
 	"string.h"
 	<map>
 	<set>
@@ -367,10 +369,10 @@
 	<list>
 	<sstream>
 
-1429109009 source:c:\users\wido\documents\lexical-analyzer\version 1\starttoparser.cpp
+1429136718 source:c:\users\wido\documents\lexical-analyzer\version 1\starttoparser.cpp
 	"StartToParser.h"
-	"Controller.h"
 	<map>
+	<iostream>
 	<string>
 	<stack>
 	<map>
@@ -898,4 +900,37 @@
 	<vector>
 	<list>
 	<iostream>
+
+1429305682 source:c:\users\wido\documents\lexical-analyzer\version 1\first.cpp
+	"First.h"
+	<iostream>
+	<vector>
+	<algorithm>
+	<string>
+	<map>
+	<vector>
+	<set>
+	<sstream>
+	"StartToParser.h"
+
+1429305683 c:\users\wido\documents\lexical-analyzer\version 1\first.h
+	<map>
+	<string>
+	"StartToParser.h"
+
+1429304963 source:c:\users\wido\documents\lexical-analyzer\version 1\follow.cpp
+	"Follow.h"
+
+1429304963 c:\users\wido\documents\lexical-analyzer\version 1\follow.h
+	<iostream>
+	<vector>
+	<algorithm>
+	<string>
+	<map>
+	<queue>
+	<vector>
+	<set>
+	<sstream>
+	"StartToParser.h"
+	"First.h"
 
