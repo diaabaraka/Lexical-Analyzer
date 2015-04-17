@@ -1,15 +1,6 @@
-#include "First.h"
+
 #include "Follow.h"
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
-#include <map>
-#include <queue>
-#include <vector>
-#include <set>
-#include <sstream>
-#include "StartToParser.h"
+
 
 using namespace std;
 
@@ -37,8 +28,7 @@ Follow::Follow()
         }
         else
         {
-            set<string> s = grammer[f];
-            s.insert(it->second);
+            grammer[f].insert(it->second);
         }
     }
 
@@ -46,10 +36,11 @@ Follow::Follow()
     {
         vector<int> a;
         graph.push_back(a);
-        set<string> b;
     }
 
     follows[obj.startingSymbol].insert("$");
+
+    expression_follow = get_follows();
 }
 
 
@@ -66,10 +57,20 @@ bool Follow::add_to_follow(string non_terminal, set<string> arr)
         else
             fllw.insert(*it);
     }
+    follows[non_terminal] = fllw;
     return flag;
 }
 
+set<string> Follow::getFollow(string s)
+{
+    return follows[s];
+}
 multimap<string , string> Follow::getAllFollow()
+{
+    return expression_follow;
+}
+
+multimap<string , string> Follow::get_follows()
 {
 
     map<string, set<string> >::iterator it;
@@ -79,12 +80,12 @@ multimap<string , string> Follow::getAllFollow()
         set<string> rhs_set = it->second;
         for(set<string>::iterator sit = rhs_set.begin(); sit!=rhs_set.end(); sit++)
         {
+
             vector<string> rhs = first.splitSpace(*sit);
             string cur, next;
             int len = (int)rhs.size();
             for(int i= 0; i<len; i++)
             {
-
                 cur = rhs[i];
                 if(obj.terminals.find(cur) != obj.terminals.end())
                     continue;
@@ -98,26 +99,26 @@ multimap<string , string> Follow::getAllFollow()
                     next = rhs[i+1];
                     if(obj.terminals.find(next) != obj.terminals.end())  // 1) if next is terminal
                     {
-                        set<string> sset = follows[cur];
-                        sset.insert(next);
+                        follows[cur].insert(next);
                     }
                     else   // 2) if next is non-terminal
                     {
                         int idx = i+1;
                         bool flag = false;
-                        while(idx<len&&(flag=add_to_follow(cur, first.getFirst(next))))
+                        while(flag=add_to_follow(cur, first.getFirst(next)))
                         {
+                            if(idx+1 == len)
+                                break;
                             next = rhs[++idx];
                         }
                         if(flag)  // case 3
                         {
-                            graph[non_terminal[it->first]].push_back(non_terminal[next]);
+                            graph[non_terminal[it->first]].push_back(non_terminal[cur]);
                         }
                     }
                 }
             }
         }
-
     }
 
     for(int i = 0; i < (int)graph.size(); i++)
@@ -128,6 +129,7 @@ multimap<string , string> Follow::getAllFollow()
 
 multimap<string, string> Follow::to_multimap()
 {
+    expression_follow.clear();
     for(map<string, set<string> >::iterator it = follows.begin(); it != follows.end(); ++it)
     {
         set<string> rhs_set = it->second;
@@ -136,6 +138,7 @@ multimap<string, string> Follow::to_multimap()
             expression_follow.insert(make_pair(it->first, *sit));
         }
     }
+    return expression_follow;
 }
 
 
@@ -154,7 +157,7 @@ void Follow::bfs(int src)
         q.pop();
         for(int i = 0; i<graph[u].size(); i++)
         {
-            int v = graph[u][v];
+            int v = graph[u][i];
             if(!vst[v])
             {
                 vst[v]=1;
@@ -168,6 +171,18 @@ void Follow::bfs(int src)
 
 
 
-
+void Follow::printAll()
+{
+    for(map<string, set<string> >::iterator it = follows.begin(); it != follows.end(); ++it)
+    {
+        cout << it->first<< " = { ";
+        set<string> rhs_set = it->second;
+        for(set<string>::iterator sit = rhs_set.begin(); sit!=rhs_set.end(); sit++)
+        {
+            cout << *sit<<"  ";
+        }
+        cout << " }\n";
+    }
+}
 
 
