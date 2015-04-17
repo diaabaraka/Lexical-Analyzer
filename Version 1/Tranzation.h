@@ -26,12 +26,16 @@ class Tranzation
      set<string>kWards ;
      set<string> punctuation ;
 
+     vector<string>tokensForParser;
+
 
 
 
 
      bool  isKeyWords (string token );
      bool  isPunctuation(string s);
+     string  getNextToken();
+
 
 
      void  parse(string word);
