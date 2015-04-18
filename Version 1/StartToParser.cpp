@@ -36,7 +36,7 @@ void StartToParser::fillGrammerList()
     grammers.insert(make_pair("E'","+ T E'"));
     grammers.insert(make_pair("E'","e"));
     grammers.insert(make_pair("T","F T'"));
-    grammers.insert(make_pair("T'","* F T'"));
+    grammers.insert(make_pair("T'","- F T'"));
     grammers.insert(make_pair("T'","e"));
     grammers.insert(make_pair("F","( E )"));
     grammers.insert(make_pair("F","id"));
@@ -129,7 +129,7 @@ void StartToParser::fillGrammerList()
 
 StartToParser::StartToParser()
 {
-    string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "*", "e" };
+    string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "-", "e" };
     for (int i = 0; i < sizeof(tmp) / sizeof(tmp[0]); ++i)
     {
         terminals.insert(tmp[i]);
