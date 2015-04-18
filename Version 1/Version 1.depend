@@ -428,16 +428,20 @@
 	<set>
 	<string>
 
-1429226416 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\controller.cpp
+1429342944 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\controller.cpp
 	<iostream>
 	"NFA.h"
 	<fstream>
 	"DFA.h"
+	"Follow.h"
+	"First.h"
+	"ParsingTable.h"
+	"StartToParser.h"
 	"Tranzation.h"
 	"DfaMinimizer.h"
 	"ParsingTable.h"
 
-1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\nfa.h
+1429308204 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\nfa.h
 	"State.h"
 	<iostream>
 	<string>
@@ -447,14 +451,14 @@
 	<string.h>
 	<stack>
 
-1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\state.h
+1429308204 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\state.h
 	<map>
 	<vector>
 	<set>
 	<string>
 	<iostream>
 
-1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfa.h
+1429308204 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfa.h
 	<map>
 	<set>
 	<string>
@@ -468,7 +472,7 @@
 	<algorithm>
 	<list>
 
-1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\tranzation.h
+1429308204 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\tranzation.h
 	"string.h"
 	<map>
 	<set>
@@ -479,9 +483,9 @@
 	"Tranzation.h"
 	<set>
 
-1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\controller.h
+1429308204 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\controller.h
 
-1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfaminimizer.h
+1429308204 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfaminimizer.h
 	"DFA.h"
 	"State.h"
 	<map>
@@ -496,7 +500,7 @@
 	<set>
 	<string>
 
-1429226416 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\parsingtable.h
+1429308204 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\parsingtable.h
 	<map>
 	<string>
 	<stack>
@@ -509,7 +513,7 @@
 	<set>
 	<string>
 
-1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfa.cpp
+1429308204 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfa.cpp
 	"DFA.h"
 	"State.h"
 	<map>
@@ -524,7 +528,7 @@
 	<set>
 	<string>
 
-1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfaminimizer.cpp
+1429308204 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\dfaminimizer.cpp
 	"DfaMinimizer.h"
 	"DFA.h"
 	"State.h"
@@ -545,21 +549,21 @@
 	<set>
 	<string>
 
-1429105847 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\main.cpp
+1429308206 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\main.cpp
 
-1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\nfa.cpp
+1429308204 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\nfa.cpp
 	"NFA.h"
 	<fstream>
 
-1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\state.cpp
+1429308204 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\state.cpp
 	"State.h"
 	<map>
 	<set>
 	<string>
 
-1429105847 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\transitiontable.cpp
+1429308206 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\transitiontable.cpp
 
-1429105846 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\tranzation.cpp
+1429308204 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\tranzation.cpp
 	<iostream>
 	<fstream>
 	<set>
@@ -574,9 +578,9 @@
 	<list>
 	<sstream>
 
-1429105847 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\waleed test main.cpp
+1429308206 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\waleed test main.cpp
 
-1429226416 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\first.cpp
+1429308204 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\first.cpp
 	"First.h"
 	<iostream>
 	<vector>
@@ -588,12 +592,12 @@
 	<sstream>
 	"StartToParser.h"
 
-1429226416 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\first.h
+1429308204 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\first.h
 	<map>
 	<string>
 	"StartToParser.h"
 
-1429105846 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\starttoparser.h
+1429343866 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\starttoparser.h
 	<map>
 	<string>
 	<stack>
@@ -606,9 +610,10 @@
 	<set>
 	<string>
 
-1429289914 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\follow.cpp
-	"First.h"
+1429343485 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\follow.cpp
 	"Follow.h"
+
+1429343877 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\follow.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -619,10 +624,9 @@
 	<set>
 	<sstream>
 	"StartToParser.h"
+	"First.h"
 
-1429289421 c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\follow.h
-
-1429226416 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\starttoparser.cpp
+1429343112 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\starttoparser.cpp
 	"StartToParser.h"
 	<map>
 	<iostream>
@@ -637,7 +641,7 @@
 	<set>
 	<string>
 
-1429226416 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\parsingtable.cpp
+1429308204 source:c:\users\mahmoud a.gawad\documents\github\lexical-analyzer\version 1\parsingtable.cpp
 	"ParsingTable.h"
 	<map>
 	<string>

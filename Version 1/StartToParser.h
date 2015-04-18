@@ -17,23 +17,23 @@
 using namespace std;
 class StartToParser
 {
-    public:
-        StartToParser();
-        virtual ~StartToParser();
+public:
+    StartToParser();
+    virtual ~StartToParser();
 
-        string startingSymbol = "METHOD_BODY" ;
+    string startingSymbol = "E" ;
 
-        std::set<std::string> terminals ;
+    std::set<std::string> terminals ;
 
-        multimap <string, string> grammers ;
-
-
+    multimap <string, string> grammers ;
 
 
-        void fillGrammerList();
 
-    protected:
-    private:
+
+    void fillGrammerList();
+
+protected:
+private:
 };
 
 #endif // STARTTOPARSER_H

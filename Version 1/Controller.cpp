@@ -19,129 +19,116 @@ using namespace std;
 int main()
 {
 
-  string line;
-  ifstream myfile ("most.txt");
-  NFA* x = new NFA();
+    string line;
+    ifstream myfile ("most.txt");
+    NFA* x = new NFA();
 
-  if (myfile.is_open())
-  {
-    while ( getline (myfile,line) )
+    if (myfile.is_open())
     {
+        while ( getline (myfile,line) )
+        {
 
-           x->parse(line);
+            x->parse(line);
 
+        }
+        myfile.close();
     }
-    myfile.close();
-  }
 
     State* start = x->compine();
 
     set<string>input = x->getInputSet();
-	DFA* dfa=new DFA(start,&input);
-  	dfa->convertToDFA();
-  	vector<State*>dfaTable=dfa->getDfaTable();
+    DFA* dfa=new DFA(start,&input);
+    dfa->convertToDFA();
+    vector<State*>dfaTable=dfa->getDfaTable();
 
     x->BFS(dfaTable[0]);
- DfaMinimizer* dm=new DfaMinimizer(dfaTable,input);
+    DfaMinimizer* dm=new DfaMinimizer(dfaTable,input);
 
-  vector <State*> vvvv=dm->getFinalMinimzedStates();
+    vector <State*> vvvv=dm->getFinalMinimzedStates();
 
     State* ss;
     int i=0;
-     for(i;i<SZ(vvvv);i++){
-      if(vvvv[i]->get_Id()==1){
-        ss=vvvv[i];
-      }
-     }
+    for(i; i<SZ(vvvv); i++)
+    {
+        if(vvvv[i]->get_Id()==1)
+        {
+            ss=vvvv[i];
+        }
+    }
 
-     vvvv.erase (vvvv.begin()+1);
+    vvvv.erase (vvvv.begin()+1);
 
-     vector <State*> finnnnn;
-     finnnnn.push_back(ss);
-   i=0;
-  for(i;i<SZ(vvvv);i++){
-    finnnnn.push_back(vvvv[i]);
-  }
+    vector <State*> finnnnn;
+    finnnnn.push_back(ss);
+    i=0;
+    for(i; i<SZ(vvvv); i++)
+    {
+        finnnnn.push_back(vvvv[i]);
+    }
 
 
-   // x->BFS(dfaTable[0]);
+    // x->BFS(dfaTable[0]);
 //    cout<<"DFA finish\n";
-       set<string>keyWards= x->keyWords;
-   set<string>punc = x->punctuation;
+    set<string>keyWards= x->keyWords;
+    set<string>punc = x->punctuation;
 
- Tranzation* tranzation = new Tranzation (input , finnnnn ,keyWards,punc );
+    Tranzation* tranzation = new Tranzation (input , finnnnn ,keyWards,punc );
 
-   tranzation->read();
+    tranzation->read();
 
-   // object tranzation for diaa to use getNextToken() method
+    // object tranzation for diaa to use getNextToken() method
 
-  /////////////////////////////////////////////////////////////////////////
-
-
-  multimap<string,string> rules;
+    /////////////////////////////////////////////////////////////////////////
 
 
-
-  multimap<string,string> follow_map;
-
-
-map <string,map <string,string> > finalTable;
-
-  string myints[] = {"id","+","-","(",")","$"};
-
-  set<string> allNonTerminals (myints,myints+6);
+    multimap<string,string> rules;
 
 
-
-//
-follow_map.insert(make_pair("E","$"));
-follow_map.insert(make_pair("E",")"));
-follow_map.insert(make_pair("E'","$"));
-follow_map.insert(make_pair("E'",")"));
-follow_map.insert(make_pair("T","+"));
-follow_map.insert(make_pair("T",")"));
-follow_map.insert(make_pair("T","$"));
-follow_map.insert(make_pair("T'","+"));
-follow_map.insert(make_pair("T'",")"));
-follow_map.insert(make_pair("T'","$"));
-
-follow_map.insert(make_pair("F","+"));
-follow_map.insert(make_pair("F",")"));
-follow_map.insert(make_pair("F","$"));
-follow_map.insert(make_pair("F","*"));
+    Follow follow;
+    multimap<string,string> follow_map = follow.getAllFollow();
+//  follow.printAll();
 
 
-  StartToParser *startToParser =new StartToParser();
+    map <string,map <string,string> > finalTable;
+
+    string myints[] = {"id","+","-","(",")","$"};
+
+    set<string> allNonTerminals (myints,myints+6);
+
+
+
+
+    StartToParser *startToParser =new StartToParser();
 
 //   string startSymbol =startToParser.startingSymbol ;  // diaa needs it
 
-   set<string>Terminals = startToParser->terminals; // diaa , waleed  , mostafa and mahmoud need it
+    set<string>Terminals = startToParser->terminals; // diaa , waleed  , mostafa and mahmoud need it
 
-   // startToParser->fillGrammerList();   //to fill the multimap
+    // startToParser->fillGrammerList();   //to fill the multimap
 
-  /////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////
 
- First *firstobj=new First();
-  multimap <string,string > first_map=firstobj->getAllFirst();
+    First *firstobj=new First();
+    multimap <string,string > first_map=firstobj->getAllFirst();
 
-  startToParser->fillGrammerList();
+    startToParser->fillGrammerList();
 
-rules=startToParser->grammers;
-
-
+    rules=startToParser->grammers;
 
 
-cout<<"7amoo"<<endl;
 
-  //Follow *f=new Follow();
 
- // multimap  <string,string> follow_map = f->getAllFollow();
+    cout<<"7amoo"<<endl;
 
-  cout<<"ahoooooooooooo"<<endl;
+    //Follow *f=new Follow();
 
-   ParsingTable* pt=new ParsingTable(rules,first_map,follow_map,allNonTerminals);  // parsing table waleeeeed
+// multimap  <string,string> follow_map = f->getAllFollow();
 
-  map<string,map<string,string> > fkk= pt->getFinalTable() ; // from waleed to diaa 7awell from waleed to diaa 7awell hal tasm3ony ?
+    cout<<"ahoooooooooooo"<<endl;
+
+    ParsingTable* pt=new ParsingTable(rules,first_map,follow_map,allNonTerminals);  // parsing table waleeeeed
+
+    map<string,map<string,string> > fkk= pt->getFinalTable() ; // from waleed to diaa 7awell from waleed to diaa 7awell hal tasm3ony ?
 
 
 //  map <string,map <string,string> >::iterator its;

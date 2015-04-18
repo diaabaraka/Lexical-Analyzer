@@ -28,18 +28,18 @@ multimap <string, string> grammers ;
 
 void StartToParser::fillGrammerList()
 {
-		//cout<<terminals.size()<<"\n";
+    //cout<<terminals.size()<<"\n";
 
 
 
- grammers.insert(make_pair("E","TE'"));
- grammers.insert(make_pair("E'","+TE'"));
-grammers.insert(make_pair("E'","e"));
- grammers.insert(make_pair("T","FT'"));
- grammers.insert(make_pair("T'","*FT'"));
- grammers.insert(make_pair("T'","e"));
- grammers.insert(make_pair("F","(E)"));
- grammers.insert(make_pair("F","id"));
+    grammers.insert(make_pair("E","T E'"));
+    grammers.insert(make_pair("E'","+ T E'"));
+    grammers.insert(make_pair("E'","e"));
+    grammers.insert(make_pair("T","F T'"));
+    grammers.insert(make_pair("T'","* F T'"));
+    grammers.insert(make_pair("T'","e"));
+    grammers.insert(make_pair("F","( E )"));
+    grammers.insert(make_pair("F","id"));
 
 
 
@@ -129,10 +129,11 @@ grammers.insert(make_pair("E'","e"));
 
 StartToParser::StartToParser()
 {
-	string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "-", "e" };
-	for (int i = 0; i < sizeof(tmp) / sizeof(tmp[0]); ++i) {
-		terminals.insert(tmp[i]);
-	}
+    string tmp[] = {"id", ";","int" , "float","if", "(", ")", "{" , "}" , "else", "while" , "=" , "relop" , "addop" , "mulop" , "num" , "+" , "*", "e" };
+    for (int i = 0; i < sizeof(tmp) / sizeof(tmp[0]); ++i)
+    {
+        terminals.insert(tmp[i]);
+    }
 
 }
 
